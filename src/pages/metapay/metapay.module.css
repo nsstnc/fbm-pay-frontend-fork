@@ -1,0 +1,78 @@
+.content {
+  margin-top: 2rem;
+  padding: 1rem;
+
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px 0 #8990d226;
+  border-radius: 16px;
+
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  white-space: nowrap;
+}
+
+.divider {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.showMore {
+  padding: 0.5rem 1rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.accountId {
+  background-color: #ececec;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+
+  > p {
+    color: #aaaaaa;
+  }
+}
+
+.block_title_refresh {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.refreshLink {
+  display: flex;
+  align-items: center;
+}
+
+.refreshIcon {
+  width: 29px;
+  height: 29px;
+}
+
+.spinner_preload {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, black);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(100% - 3.8px),
+    #000 0
+  );
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}

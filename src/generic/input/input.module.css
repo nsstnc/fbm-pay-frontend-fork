@@ -1,0 +1,37 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;
+  gap: 0.5rem 0;
+}
+
+::placeholder {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #aaaaaa;
+}
+
+.input {
+  padding: 0.7rem;
+  width: 100%;
+
+  align-content: center;
+
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+}
+.password {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.viewPassword {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+/* 
+@media only screen and (max-width); */

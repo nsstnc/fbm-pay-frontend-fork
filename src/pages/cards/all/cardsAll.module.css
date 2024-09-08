@@ -1,0 +1,51 @@
+.buttons {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    margin-bottom: -3rem;
+    padding-bottom: 1rem;
+}
+
+.hint{
+left: .1vw!important;
+}
+
+.rightButtons {
+    display: flex;
+    gap: 0 1rem;
+
+    > div {
+        display: flex;
+        gap: 0 .2rem;
+    }
+}
+
+.title {
+    display: flex;
+    gap: 0 .2rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.accountId {
+    background-color: #ECECEC;
+    padding: .5rem 2rem;
+    border-radius: 4px;
+
+    > p {
+        color: #AAAAAA;
+    }
+}
+
+.refillMethod {
+    padding: .5rem 2rem;
+    width: max-content;
+
+    color: #21A038;
+    background-color: #ECECEC;
+}

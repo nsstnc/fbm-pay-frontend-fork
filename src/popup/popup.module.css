@@ -1,0 +1,46 @@
+/*Popup*/
+* {
+  box-sizing: border-box;
+}
+.img{
+  width: 70px;
+  height: 60px;
+}
+.background {
+  background: rgba(255,255,255,1);
+  padding: 32px 40px;
+  opacity: 1;
+  border-radius: 16px;
+  box-shadow: 0px 4px 15px rgba(0.5, 0.5, 0.8, 0.15);
+  overflow: hidden;
+  display:flex;
+  flex-direction: column;
+  max-width: 540px;
+}
+.header {
+  color: rgba(35,35,35,1);
+  font-family: Noto Sans, serif;
+  font-weight: Bold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: center;
+}
+.main {
+  margin-top: 16px;
+  color: rgba(70,70,70,1);
+  font-family: Noto Sans, serif;
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
+
+.bottom-block{
+  display: flex;
+  flex-direction: row;
+}
+/*-----*/
+
+
+
+

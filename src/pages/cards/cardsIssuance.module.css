@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "Astrolab"; /*Can be any text*/
+  src: local("Astrolab"), url("./Astrolab.ttf") format("truetype");
+}
+
+.card-html .flex h2 {
+  font-family: "Astrolab";
+}
+
+.hint {
+  position: absolute;
+  display: none;
+  width: 20rem;
+  padding: 1rem;
+  background-color: #2f3035;
+  box-shadow: 0 2px 8px 0 #8990d226;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.undefined {
+  position: relative;
+}
+
+.pageContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 20%;
+  gap: 1rem 0;
+}
+
+.chooseParams {
+  margin-top: 0.5rem;
+  display: flex;
+  width: max-content;
+  flex-wrap: wrap;
+  border-image: linear-gradient(
+    88.58deg,
+    #83da4e 2.42%,
+    #21a038 51.09%,
+    #54acb8 95.68%
+  );
+  -moz-border-image: -moz-linear-gradient(
+    88.58deg,
+    #83da4e 2.42%,
+    #21a038 51.09%,
+    #54acb8 95.68%
+  );
+  -webkit-border-image: -webkit-linear-gradient(
+    88.58deg,
+    #83da4e 2.42%,
+    #21a038 51.09%,
+    #54acb8 95.68%
+  );
+  border-image-slice: 1;
+  border-width: 2px;
+  border-style: solid;
+  display: flex;
+  width: max-content;
+  flex-wrap: wrap;
+
+  background-repeat: no-repeat;
+  background-origin: padding-box, border-box;
+  border: double 0.1em transparent;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(white, white),
+    linear-gradient(88.58deg, #83da4e 2.42%, #21a038 51.09%, #54acb8 95.68%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  > * {
+    padding: 0.65rem;
+
+    background-color: #ffffff;
+  }
+}
+
+.checked {
+  background-color: #21a038;
+  color: white;
+}
+
+.radioButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem 0;
+}
+
+.radio {
+  display: flex;
+  gap: 0 0.2rem;
+  margin-top: 0.5rem;
+}
+
+.plates {
+  width: 75%;
+}
+
+.border {
+  border-left: 1px solid #21a038;
+  transition: 0.01s;
+}
+
+.border:hover {
+  background: #21a038;
+  color: #fff;
+  cursor: pointer;
+  /*border-left: calc (.5rem + 1px) solid #21A038;*/
+}
+
+@media screen and (max-width: 500px) {
+  .pageContent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search {
+    display: flex !important;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .params {
+    width: 100%;
+  }
+
+  .chooseParams {
+    display: flex;
+    background: white;
+    border: 1px solid #21a038;
+    width: 100%;
+  }
+
+  .chooseParams:last-child {
+    background: black;
+    padding: 0;
+    margin: 0;
+  }
+
+  .undefined {
+    width: 100%;
+  }
+
+  .params .chooseParams .border:nth-of-type(1) {
+    text-align: center;
+    width: 17.001%;
+  }
+
+  .params .chooseParams .border:nth-of-type(2) {
+    text-align: center;
+    width: 30.001%;
+  }
+
+  .params .chooseParams .border:nth-of-type(3) {
+    text-align: center;
+    width: 20.001%;
+  }
+
+  .params .chooseParams .border:nth-of-type(4) {
+    width: 33%;
+    text-align: center;
+  }
+
+  .password {
+    width: 100%;
+  }
+
+  .radioButtons {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  .password {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .password_control {
+    position: absolute;
+    top: 2rem;
+  }
+
+  .card-html {
+    width: 40px !important;
+  }
+
+  .plates {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0;
+  }
+}

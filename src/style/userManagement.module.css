@@ -1,0 +1,46 @@
+.pageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin-top: 2rem;
+    padding: 2rem;
+
+    background-color: white;
+    border-radius: 16px;
+}
+
+.button {
+    width: 10rem;
+}
+
+.userData {
+    padding-bottom: 1rem;
+    overflow-x: scroll;
+}
+
+.descriptionBlock {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.active, .blocked {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    width: 7rem;
+    padding: .2rem 1rem;
+    border-radius: 4px;
+}
+
+.active {
+    color: #21A038;
+    background-color: #D9FFE0;
+}
+
+.blocked {
+    color: #FF4D4D;
+    background-color: #FFE2E2;
+}

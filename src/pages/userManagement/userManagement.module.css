@@ -1,0 +1,81 @@
+.pageContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  margin-top: 2rem;
+  padding: 2rem;
+
+  background-color: white;
+  border-radius: 16px;
+}
+
+.button {
+  width: max-content;
+  height: 2em;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 0 0.2rem;
+}
+
+.descriptionBlock {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.active,
+.blocked {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  width: 10rem;
+  padding: 0.2rem 1rem;
+  border-radius: 4px;
+}
+
+.active {
+  color: #21a038;
+  background-color: #d9ffe0;
+}
+
+.blocked {
+  color: #ff4d4d;
+  background-color: #ffe2e2;
+}
+.userData {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 0.2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .pageContent {
+    padding: 20px;
+  }
+
+  .button {
+    height: 40px;
+  }
+
+  .page {
+    height: 100%;
+  }
+
+  .footer {
+    height: 100%;
+    margin-top: auto;
+  }
+}

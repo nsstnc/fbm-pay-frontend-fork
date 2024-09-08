@@ -1,0 +1,26 @@
+.plate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 1rem;
+
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px 0 #8990D226;
+    border-radius: 16px;
+}
+
+.button {
+    width: 30%;
+}
+
+.plate__text {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+
+    gap: 0.5rem 0;
+}

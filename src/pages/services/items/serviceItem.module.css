@@ -1,0 +1,43 @@
+.serviceItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+    gap: 1rem 0;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 16px;
+box-shadow: 0 4px 15px 0 #8990D226;
+}
+
+.undefined{
+
+color: #21A038;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    gap: 1rem 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    gap: 0 1rem;
+}

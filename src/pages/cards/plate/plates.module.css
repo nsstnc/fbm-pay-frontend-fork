@@ -1,0 +1,50 @@
+.plates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+  gap: 2rem 0;
+}
+
+.card-html.card-dark {
+  background: url(/src/image/cards/cardDark.svg);
+}
+
+@media screen and (max-width: 500px) {
+  .plates {
+    margin-top: 40px;
+  }
+
+  .headerItmes {
+    width: 100%;
+  }
+
+  .icon_bin {
+    height: 28px;
+  }
+
+  .number_card {
+    font-size: 8px !important;
+  }
+
+  .point_card {
+    font-size: 6px !important;
+    margin-left: -90px !important;
+    padding: 0px 2px 0px 0px;
+  }
+
+  .point_cards {
+    color: white;
+  }
+
+  .point_card:first-child {
+    padding: 0px 2px 0px 0px;
+  }
+
+  .smallerText {
+    width: 100%;
+    text-align: center;
+  }
+}

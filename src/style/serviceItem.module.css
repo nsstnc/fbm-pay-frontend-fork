@@ -1,0 +1,21 @@
+.serviceItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    gap: 1rem 0;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 16px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    gap: 0 1rem;
+}

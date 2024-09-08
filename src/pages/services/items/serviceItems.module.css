@@ -1,0 +1,94 @@
+span {
+    font-weight: 700;
+}
+
+.undefined{
+
+color: #21A038!important;
+}
+
+.linkContainer p{
+color: #21A038;
+}
+
+.linkContainer {
+    display: flex;
+    align-items: center;
+    gap: 0 .5rem;
+}
+
+.serviceItems {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    > div {
+        flex: 300px;
+    }
+}
+/*
+.item1 {
+    grid-area: card1;
+}
+
+.item2 {
+    grid-area: card2;
+}
+
+.item3 {
+    grid-area: card3;
+}
+
+.item4 {
+    grid-area: card4;
+}
+
+.item5 {
+    grid-area: card5;
+}
+
+.item6 {
+    grid-area: card6;
+}
+
+.item7 {
+    grid-area: card7;
+}
+
+.item8 {
+    grid-area: card8;
+}
+
+.item9 {
+    grid-area: card9;
+}
+
+.item10 {
+    grid-area: card10;
+}
+
+.item11 {
+    grid-area: card11;
+}
+
+.item12 {
+    grid-area: card12;
+}
+
+.item13 {
+    grid-area: card13;
+}
+
+.item14 {
+    grid-area: card14;
+}
+
+.item15 {
+    grid-area: card15;
+}
+
+.item16 {
+    grid-area: card16;
+}*/

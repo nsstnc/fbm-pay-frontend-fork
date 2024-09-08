@@ -1,0 +1,9 @@
+.hint {
+    display: flex;
+
+    gap: 0 .2rem;
+}
+
+.hint__text {
+    color: #AAAAAA;
+}

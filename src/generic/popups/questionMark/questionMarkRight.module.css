@@ -1,0 +1,62 @@
+.question {
+    position: relative;
+
+    &:hover > .hint {
+        display: initial;
+    }
+}
+
+.img {
+    background-size: 1.5rem;
+}
+
+.hint {
+    position: absolute;
+
+    display: none;
+
+    width: 20rem;
+    padding: 1rem;
+
+    background-color: #2F3035;
+    box-shadow: 0 2px 8px 0 #8990D226;
+    border-radius: 8px;
+top: -10px;
+left:30px;
+    z-index: 10;
+
+}
+
+.text {
+    top: .2rem;
+    right: .2rem;
+
+    color: white;
+}
+
+
+.triangle {
+
+}
+
+.left {
+
+}
+
+.top {
+    top: -5rem !important;
+    left: -10rem !important;
+}
+
+.bottom {
+
+}
+
+.right {
+    top: 0 !important;
+    left: 5rem !important;
+}
+
+.rightSide{
+left: 10rem!important;
+}

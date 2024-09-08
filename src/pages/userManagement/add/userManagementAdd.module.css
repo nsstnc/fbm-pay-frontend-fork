@@ -1,0 +1,106 @@
+.content {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: white;
+}
+
+input {
+  border-radius: 0.2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem 0;
+}
+
+.input {
+  width: 30rem;
+  gap: 0 1rem;
+}
+
+.checkBox {
+  text-align: start;
+}
+
+.accessToAccounts {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 80%;
+}
+.accessToAccounts label {
+}
+
+.addAccount {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  width: 80%;
+}
+.mainText {
+  width: 80% !important;
+}
+
+.addAccount button {
+  padding: 0;
+}
+.attention {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.button {
+  width: 10rem;
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .accessToAccounts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .access_add_account {
+    display: flex;
+    width: 100%;
+  }
+
+  .addAccount {
+    width: 100%;
+  }
+
+  .attention {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    gap: 7px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+}

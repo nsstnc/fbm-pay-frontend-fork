@@ -1,0 +1,53 @@
+.content {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: white;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem 0;
+}
+
+.input {
+    width: 60%;
+}
+
+.checkBox {
+    text-align: start;
+}
+
+.accessToAccounts {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.addAccount {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    white-space: nowrap;
+    flex-wrap: wrap;
+
+    gap: .5rem;
+}
+
+.attention {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.buttons {
+    display: flex;
+    gap: .5rem;
+}
+
+.button {
+    width: 10rem;
+}

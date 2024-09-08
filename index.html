@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FbmPay</title>
+    <link rel="icon" href="/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap");
+      .password-control {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+      }
+
+      .password-input {
+        padding: 0.7rem;
+        width: 100%;
+        align-content: center;
+        border: 1px solid #aaaaaa;
+        border-radius: 4px;
+        font-size: 0.87rem !important;
+      }
+
+      .rs-popover {
+        padding: 0 !important;
+        border-radius: 5rem;
+      }
+      .rs-anim-fade.rs-anim-in.placement-left.rs-popover {
+        transform: translate(-100%, 40%) !important;
+        transition: none;
+        width: 6rem;
+      }
+
+      .rs-dropdown-item-focus {
+        background: rgba(0, 0, 0, 0.05) !important;
+        border-radius: 0.5rem !important;
+      }
+      .q-img {
+        height: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      document.getElementsByClassName("preloader")[0].style.display = "none"
+    </script>
+    <script type="module" src="/src/index.jsx"></script>
+    <script>
+      $("body").on("click", "._viewPassword_7k3so_63", function () {
+        if ($(".password-input").attr("type") == "password") {
+          $(this).addClass("view")
+          $(".password-input").attr("type", "text")
+        } else {
+          $(this).removeClass("view")
+          $(".password-input").attr("type", "password")
+        }
+        return false
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.result {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    gap: 0 1rem;
+    padding: 1rem 0;
+
+    border-top: 2px solid #F3F3F3;
+
+    > * {
+        width: 13rem;
+    }
+}

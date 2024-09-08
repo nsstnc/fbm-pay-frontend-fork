@@ -1,0 +1,52 @@
+.attention {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    gap: 1rem 0;
+    padding: 1.5rem;
+
+    background-color: #FFE2E2;
+    border-radius: 16px;
+
+    > h1 {
+        color: #FF4D4D;
+    }
+}
+
+span {
+    font-weight: 700;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 80%;
+    gap: 0 .5rem;
+}
+
+.text {
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    gap: 0 .5rem;
+}
+
+.button {
+    text-align: center;
+
+    width: auto;
+    padding: .5rem;
+
+    color: white;
+    background-color: #FF4D4D;
+    border-radius: 4px;
+}

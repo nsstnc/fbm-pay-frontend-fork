@@ -1,0 +1,12 @@
+.headerItems {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 30rem;
+    margin-top: 2rem;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 16px;
+}

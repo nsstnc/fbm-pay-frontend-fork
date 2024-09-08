@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Astrolab"; /*Can be any text*/
+  src: local("Astrolab"), url("./Astrolab.ttf") format("truetype");
+}
+
+.pageContent {
+}
+
+.card-html {
+  padding-top: 6rem;
+  padding-left: 1rem;
+  background: url(/src/image/cards/cardDark.svg) no-repeat center;
+  height: 10.5rem;
+  width: 10rem;
+}
+
+.card-html h2 {
+}

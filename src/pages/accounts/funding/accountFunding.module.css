@@ -1,0 +1,314 @@
+.pageContent {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+
+  gap: 1rem !important;
+  margin: 2rem 0 !important;
+}
+
+.block {
+  display: flex !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.card {
+  width: 30% !important;
+}
+
+.attention {
+  width: 68% !impor tant;
+}
+
+.cardContents {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  width: 100% !important;
+
+  gap: 0.5rem 0 !important;
+}
+
+.cardContent {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  width: 100% !important;
+  padding: 1rem !important;
+
+  background-color: white !important;
+  box-shadow: 0 4px 15px 0 #8990d226 !important;
+  border-radius: 16px !important;
+}
+
+.headerContainer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.header {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 1rem 0 !important;
+  width: 70% !important;
+}
+
+.textContainer {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  position: relative;
+  gap: 1rem 0 !important;
+  margin-top: 1rem !important;
+}
+
+.text {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+
+  white-space: wrap !important;
+
+  > * {
+    width: 20rem !important;
+  }
+}
+
+.wallet {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 0 0.5rem !important;
+}
+
+.status {
+  width: 15rem !important;
+}
+
+.buttons {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  white-space: nowrap !important;
+
+  width: 100% !important;
+  margin-top: 2rem !important;
+}
+
+.orangeButtons {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  gap: 0 2rem !important;
+}
+
+.buttonsAfterForm {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  white-space: nowrap !important;
+
+  width: 100% !important;
+}
+
+.button {
+  width: min-content !important;
+}
+
+.buttonAddNewWallet {
+}
+
+.block_page_refresh {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.refreshLink {
+  display: flex;
+  align-items: center;
+}
+
+.refreshIcon {
+  width: 29px;
+  height: 29px;
+}
+
+.preload {
+  background: rgb(232, 227, 227);
+  opacity: 0.3;
+}
+
+.spinner_preload {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, black);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(100% - 3.8px),
+    #000 0
+  );
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner_block {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, black);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(100% - 3.8px),
+    #000 0
+  );
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.spinner_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, black);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(100% - 3.8px),
+    #000 0
+  );
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .headerContainer .header {
+    width: 100% !important;
+    padding: 0;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .text .wallet,
+  .status {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .text .status {
+    width: 100% !important;
+  }
+
+  .wallet_data {
+    display: flex;
+    gap: 4px;
+  }
+
+  .block {
+    display: flex;
+    flex-direction: column;
+
+    width: 100% !important;
+    gap: 14px;
+  }
+
+  .block_page_refresh {
+    display: flex;
+  }
+
+  .block .card {
+    width: 100% !important;
+  }
+
+  .cardHeader {
+    width: 100%;
+  }
+
+  .block_page_refresh .page {
+    display: flex;
+    gap: 10px;
+  }
+
+  .page .pageTitle {
+    font-size: 20px !important;
+  }
+
+  .icon_usdt {
+    width: 31px;
+  }
+
+  .textContainer {
+    display: flex;
+    align-items: none;
+    padding: 0;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px;
+  }
+
+  .button {
+    width: 100% !important;
+  }
+
+  .orangeButtons {
+    display: flex;
+    gap: 8px !important;
+    width: 100%;
+  }
+
+  .buttonsAfterForm {
+    margin-top: 40px;
+  }
+}

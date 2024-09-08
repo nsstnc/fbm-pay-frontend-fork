@@ -1,0 +1,31 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: max-content;
+    gap: 0 .2rem;
+
+    > img {
+        width: 2.2rem;
+    }
+}
+
+.cardNumber {
+    display: flex;
+    justify-content: space-between;
+
+    white-space: nowrap;
+
+    gap: 0 .2rem;
+    padding: .2rem;
+
+    color: white;
+    background-color: #21A038;
+    border-radius: 4px;
+}
+
+.question {
+    width: 1rem;
+    padding: .2rem .5rem;
+}

@@ -1,0 +1,15 @@
+.flex {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.accountId {
+    background-color: #ECECEC;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+
+    > p {
+        color: #AAAAAA;
+    }
+}

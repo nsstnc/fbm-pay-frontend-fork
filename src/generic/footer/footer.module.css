@@ -1,0 +1,14 @@
+.footer {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.text {
+    margin-top: 1rem;
+}
+
+.green {
+    background: linear-gradient(88.98deg, #83DA4E 39.18%, #21A038 49.07%, #54ACB8 58.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

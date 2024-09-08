@@ -1,0 +1,20 @@
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: max-content;
+  gap: 0 1rem;
+  padding: 1rem 0;
+
+  border-top: 2px solid #f3f3f3;
+
+  > * {
+    width: 13rem;
+  }
+}
+
+.preload {
+  background: white;
+  opacity: 0.3;
+}

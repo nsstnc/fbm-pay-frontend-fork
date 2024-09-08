@@ -1,0 +1,17 @@
+.contentCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+
+    background-color: white;
+    border-radius: 16px;
+}
+
+.cardHeader {
+    margin-bottom: 1rem;
+}

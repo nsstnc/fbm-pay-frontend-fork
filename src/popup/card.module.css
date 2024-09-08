@@ -1,0 +1,124 @@
+/*CardPopup*/
+.users-back {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  gap: 40px;
+  background-color: #ffffff;
+}
+.frame-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.header-user {
+  text-align: left;
+  vertical-align: top;
+  font-size: 30px;
+  font-family: Noto Sans;
+  line-height: 44%;
+  color: #232323;
+}
+.frame-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.main-header {
+  text-align: left;
+  vertical-align: top;
+  font-size: 12px;
+  font-family: Noto Sans;
+  line-height: 16%;
+  color: #aaaaaa;
+}
+.main-content {
+  text-align: left;
+  vertical-align: top;
+  font-size: 12px;
+  font-family: Noto Sans;
+  line-height: 16%;
+  color: #aaaaaa;
+}
+.frame-user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.frame-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.user-name {
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+  font-family: Noto Sans;
+  line-height: 28%;
+  color: #232323;
+}
+.user-mail {
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+  font-family: Noto Sans;
+  line-height: 20%;
+  color: #aaaaaa;
+}
+.frame-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+.frame-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+}
+.statustab {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 0px;
+  gap: 10px;
+  background-color: #d8ffdf;
+}
+.main-status {
+  text-align: center;
+  vertical-align: top;
+  font-size: 12px;
+  font-family: Noto Sans;
+  line-height: 16%;
+  color: #21a038;
+}
+.main-user {
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+  font-family: Noto Sans;
+  line-height: 20%;
+  color: #aaaaaa;
+}

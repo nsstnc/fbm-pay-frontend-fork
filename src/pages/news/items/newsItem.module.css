@@ -1,0 +1,38 @@
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 2rem;
+
+    background-color: white;
+    border-radius: 16px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    gap: 0 1rem;
+}
+
+.text {
+    margin-top: 1rem;
+    max-width: 90%;
+}
+
+.date {
+    margin-top: 2rem;
+}
+
+.button {
+    white-space: nowrap;
+}
+.titleText{
+font-size: 2rem!important;
+}
+br{
+    display: block;
+    margin: 30px 0;
+  }

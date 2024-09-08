@@ -1,0 +1,42 @@
+.content {
+    margin-top: 2rem;
+    padding: 1rem;
+
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px 0 #8990D226;
+    border-radius: 16px;
+
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    white-space: nowrap;
+}
+
+.showMore {
+    padding: .5rem 1rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.openTicket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: max-content;
+    gap: 0 .5rem;
+    padding: .5rem 1rem;
+
+    color: #FFFFFF;
+    background-color: #21A038;
+    border-radius: 8px;
+}

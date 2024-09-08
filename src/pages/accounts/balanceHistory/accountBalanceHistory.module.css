@@ -1,0 +1,57 @@
+.flex {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.2rem !important;
+}
+
+.accountId {
+  background-color: #ececec !important;
+  padding: 0.2rem !important;
+  border-radius: 4px !important;
+
+  > p {
+    color: #aaaaaa !important;
+  }
+}
+
+.positiveAmount {
+  color: #21a038 !important;
+}
+
+.refillMethod {
+  padding: 0.5rem 2rem !important;
+  width: max-content !important;
+
+  color: #21a038 !important;
+  background-color: #ececec !important;
+}
+
+.preload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: max-content;
+  gap: 0 1rem;
+  padding: 0 0;
+}
+
+@media screen and (max-width: 500px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0px 12px 0px 12px;
+    gap: 12px;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+    /* margin-bottom: 10px; */
+  }
+
+  .active {
+    display: none;
+  }
+}

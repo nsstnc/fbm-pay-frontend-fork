@@ -1,0 +1,61 @@
+.attention {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  gap: 1rem 0;
+  padding: 1.5rem;
+
+  background-color: #ffe2e2;
+  border-radius: 16px;
+
+  > h1 {
+    color: #ff4d4d;
+  }
+}
+
+span {
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80%;
+  gap: 0 0.5rem;
+}
+
+.text {
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0 0.5rem;
+}
+
+.button {
+  text-align: center;
+
+  width: auto;
+  padding: 0.5rem;
+
+  color: white;
+  background-color: #ff4d4d;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

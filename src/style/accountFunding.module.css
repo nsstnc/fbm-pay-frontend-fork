@@ -1,0 +1,40 @@
+.pageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.block {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    width: 30%;
+}
+
+.attention {
+    width: 68%;
+}
+
+.cardContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    gap: .5rem 0;
+}
+
+.cardContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

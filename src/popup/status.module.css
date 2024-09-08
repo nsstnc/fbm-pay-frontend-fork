@@ -1,0 +1,58 @@
+/*Sus and Err Card*/
+.success {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 28px 24px 24px;
+  background-color: #21a038;
+}
+.err {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 28px 24px 24px;
+  background-color: #FF4D4D;
+}
+.frame{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+.headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+.header-card{
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+  font-family: Noto Sans;
+  line-height: 24%;
+  color: #ffffff;
+}
+.main-card {
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+  font-family: Noto Sans;
+  line-height: 20%;
+  color: #ffffff;
+}
+.esc {
+  height: 24px;
+  width: 24px;
+  background-color: #ffffff;
+}
+/*-----*/
+
+
+

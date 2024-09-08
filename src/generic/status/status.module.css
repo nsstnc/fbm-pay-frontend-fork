@@ -1,0 +1,25 @@
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 5rem;
+    padding: .5rem 3rem;
+
+    border-radius: 4px;
+}
+
+.Pending {
+    color: #F79E1B;
+    background-color: #FFF3D3;
+}
+
+.Active {
+    color: #21A038;
+    background-color: #D9FFE0;
+}
+
+.Blocked {
+    color: #FF4D4D;
+    background-color: #FFE2E2;
+}

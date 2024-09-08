@@ -1,0 +1,115 @@
+.pageContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+    "card1 card2 card3"
+    "card4 card5 sideBar"
+    "main main sideBar"
+    "main main nothing";
+
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.payNews, .balance__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    gap: .5rem 0;
+    padding: 1rem 0;
+}
+
+.payNews__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+}
+
+.balance__container {
+    gap: 1rem 0;
+}
+
+.balance {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+ }
+
+.balance__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .5rem 0;
+}
+
+.balance__title {
+    display: flex;
+    gap: 0 .5rem;
+}
+
+.divCardsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0 3rem;
+}
+
+.divText {
+    display: flex;
+    align-items: center;
+    gap: 0 .5rem;
+}
+
+.divCards {
+    display: flex;
+    width: 100%;
+}
+
+.divContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 3rem;
+
+    gap: 0 .4rem;
+    padding: .5rem .5rem;
+
+    border: 2px solid red;
+    border-radius: 16px;
+}
+
+.div1 {
+    grid-area: card1;
+}
+
+.div2 {
+    grid-area: card2;
+}
+
+.div3 {
+    grid-area: card3;
+}
+
+.div4 {
+    grid-area: card4;
+}
+
+.div5 {
+    grid-area: card5;
+}
+
+.div6 {
+    grid-area: sideBar;
+}
+
+.div7 {
+    grid-area: main;
+}

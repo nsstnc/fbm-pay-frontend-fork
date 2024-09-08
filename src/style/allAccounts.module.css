@@ -1,0 +1,105 @@
+.pageContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+
+    > div {
+        width: 24%;
+    }
+}
+
+.div5 {
+    background-color: white;
+    border-radius: 16px;
+
+    padding: 1.5rem;
+}
+
+.filter__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 0 1rem;
+}
+
+.filter__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: .5rem;
+    padding: .5rem;
+
+    color: #21A038;
+    background-color: #F5FFF7;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    margin: 2rem;
+    gap: .5rem;
+}
+
+.input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 0 .5rem;
+}
+
+.colorButton {
+    width: 10rem;
+}
+
+.button {
+    justify-self: center;
+    align-content: center;
+
+    padding: .8rem 4rem;
+
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.addUsers {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.account {
+    justify-items: flex-start;
+    gap: 1rem 0;
+}
+
+.users {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0 .5rem;
+}
+
+.balance {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0 .5rem;
+}

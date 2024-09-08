@@ -1,0 +1,18 @@
+.menuItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 100%;
+  gap: 0.5rem 0;
+}
+
+.balance {
+  font-weight: 700 !important;
+}
+
+@media screen and (max-width: 500px) {
+  .active {
+    display: none;
+  }
+}

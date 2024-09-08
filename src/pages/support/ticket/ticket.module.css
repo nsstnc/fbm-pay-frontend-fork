@@ -1,0 +1,26 @@
+.addableCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ECECEC;
+    color: #AAAAAA;
+
+    width: max-content;
+    padding: .5rem 1rem;
+}
+
+.content {
+    margin-top: 2rem;
+    padding: 1rem;
+
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 15px 0 #8990D226;
+    border-radius: 16px;
+
+    width: 100%;
+}
+
+.buttons {
+
+}

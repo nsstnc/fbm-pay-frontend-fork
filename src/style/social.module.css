@@ -1,0 +1,15 @@
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48%;
+
+    gap: 10px;
+    padding: 10px;
+
+    color: #232323;
+    background: #F3F3F3;
+
+    border-radius: 8px;
+}

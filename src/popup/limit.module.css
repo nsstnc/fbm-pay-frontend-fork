@@ -1,0 +1,55 @@
+.card-limits {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  gap: 40px;
+  background-color: #ffffff;
+}
+.header {
+  text-align: left;
+  vertical-align: top;
+  font-size: 30px;
+  font-family: Noto Sans;
+  line-height: 44%;
+  color: #232323;
+}
+.frame-limit{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.header-input {
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+  font-family: Noto Sans;
+  line-height: 24%;
+  color: #232323;
+}
+.frame-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.simbol{
+  text-align: left;
+  vertical-align: top;
+  font-size: 18px;
+  font-family: Noto Sans;
+  line-height: 24%;
+  color: #aaaaaa;
+}
+.frame-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 16px;
+}

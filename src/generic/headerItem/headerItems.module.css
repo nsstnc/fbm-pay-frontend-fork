@@ -1,0 +1,20 @@
+.headerItems {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+  gap: 0 1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px 0 #8990d226;
+}
+
+@media screen and (max-width: 500px) {
+  .headerItems {
+    width: 95%;
+    justify-content: space-between;
+  }
+}

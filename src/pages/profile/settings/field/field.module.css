@@ -1,0 +1,44 @@
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80%;
+  padding: 0.4rem 0;
+
+  > .value {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+  }
+}
+
+.smallerText {
+  opacity: 0.5 !important;
+  font-size: 0.55rem !important;
+}
+
+@media screen and (max-width: 500px) {
+  .field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100% !important;
+  }
+
+  .field .value {
+    width: 100%;
+  }
+
+  .field:nth-of-type(7) {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    > .titleText {
+      display: flex;
+      width: 100%;
+    }
+  }
+}

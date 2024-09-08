@@ -1,0 +1,51 @@
+.button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 100%;
+    height: 100%;
+    padding: .5rem 1rem;
+
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+
+
+    &:hover{
+        background: linear-gradient(90deg, #83DA4E, #21A038, #54ACB8);
+    }
+
+    &:hover > .text > *,
+    &:hover > .text > p > p > *{
+        color: white !important;
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: nowrap;
+
+    height: 100%;
+
+    gap: .5rem 0;
+    margin-left: .5rem;
+
+    background: none;
+    border: none;
+}
+
+.activeText {
+    color: white !important;
+
+    > p > * {
+        color: white !important;
+    }
+}
+
+.activeItem {
+    background: linear-gradient(90deg, #83DA4E, #21A038, #54ACB8);
+}

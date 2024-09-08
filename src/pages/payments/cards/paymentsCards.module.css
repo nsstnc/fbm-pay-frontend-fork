@@ -1,0 +1,23 @@
+.flex {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
+
+.accountId {
+    background-color: #ECECEC;
+    padding: .5rem 1rem;
+    border-radius: 4px;
+
+    > p {
+        color: #AAAAAA;
+    }
+}
+
+.refillMethod {
+  padding: 0.5rem 2rem;
+  width: max-content;
+
+  color: #21a038;
+  background-color: #ececec;
+}

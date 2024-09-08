@@ -1,0 +1,116 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("../../image/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  white-space: nowrap;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 25vw;
+  gap: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 0.5rem;
+}
+
+.content {
+  width: 100%;
+}
+
+.btn_login {
+  height: 21px;
+}
+
+.text {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 600px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+
+    width: 100vw;
+    gap: 1rem 0;
+  }
+
+  .text {
+    font-size: 23px;
+    font-weight: 400;
+  }
+  .login .title {
+    font-size: 27px !important;
+    font-weight: 700;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 0 0.5rem;
+  }
+
+  .icon_card {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    gap: 1rem 0;
+  }
+  .text {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 0 0.5rem;
+  }
+
+  .login .title {
+    font-size: 24px !important;
+    font-weight: 700;
+  }
+
+  .icon_card {
+    height: 120px;
+    width: 120px;
+  }
+}

@@ -1,0 +1,38 @@
+.contact {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  gap: 0 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact__specification {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem 0;
+}
+
+.contact__text,
+.contact__link {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+}
+
+.img {
+  width: 1rem;
+  background-size: contain;
+}
+
+@media screen and (max-width: 500px) {
+  .contact {
+    flex-basis: 50%;
+    margin-bottom: 1rem;
+  }
+  .child:nth-child(3) {
+    flex-basis: 100%; /* Третий элемент занимает всю ширину и переносится на новую строку */
+  }
+}
