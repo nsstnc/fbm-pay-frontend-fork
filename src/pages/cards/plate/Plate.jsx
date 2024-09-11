@@ -7,24 +7,26 @@ import Issuance from "../issuance/Issuance.jsx"
 import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
 
 // eslint-disable-next-line react/prop-types,no-unused-vars
-const Plate = ({ title, img, cardImg, oneCardImg, plate }) => {
+const Plate = ({ title, img, cardImg, oneCardImg, plate, isWidth }) => {
   const [issuance, setIssuance] = useState(false)
-
+  let cardNameId = `${img.props.alt}  ${title}`
   const visibleIssuance =
     issuance === true ? (
       <Issuance
-        title={`${img.props.alt} ${title}`}
+        // title={` ${img.props.alt} ${title}`}
+        title={cardNameId}
         cardImg={cardImg}
         value={issuance}
         setValue={setIssuance}
         plate={plate}
+        isWidth={isWidth}
       />
     ) : (
       <></>
     )
 
   //handlWidth
-  let isWidth = handleWidth()
+  // let isWidth = handleWidth()
 
   //onClick issuanuance true
 

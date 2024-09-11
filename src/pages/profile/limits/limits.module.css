@@ -1,69 +1,81 @@
 .pageContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    gap: 1rem;
-    margin: 2rem 0;
-    padding: 1rem 2rem;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem 2rem;
 
-    background-color: white;
-    box-shadow: 0 4px 15px 0 #8990D226;
-    border-radius: 16px;
-
+  background-color: white;
+  box-shadow: 0 4px 15px 0 #8990d226;
+  border-radius: 16px;
 }
 
 .cards {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0 2rem;
 
-    height: max-content;
+  height: max-content;
 }
 
 .card {
-    width: 25%;
-    height: max-content;
-    height: 11rem !important;
+  width: 25%;
+  height: max-content;
+  height: 11rem !important;
 }
 
 .cardContents {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height:7rem!important;
-    width: 100%;
-    gap: .5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 7rem !important;
+  width: 100%;
+  gap: 0.5rem 0;
 }
 
 .cardContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: .2rem;
-    width: 100%;
-    gap: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.2rem;
+  width: 100%;
+  gap: 0 1rem;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 0 .5rem;
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem 0;
 }
 
 .attention {
-    margin-top: 2rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
 }

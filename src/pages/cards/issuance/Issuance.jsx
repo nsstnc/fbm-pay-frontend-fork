@@ -12,9 +12,11 @@ import QuestionMark from "../../../generic/popups/questionMark/QuestionMark.jsx"
 import QuestionMarkTable from "../../../generic/popups/questionMark/QuestionMarkTable.jsx"
 import questionStyle from "../../../generic/popups/questionMark/questionMark.module.css"
 import React, { useState, useEffect } from "react"
-
+import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
+import arrowDown from "../../../image/arrow-down-card.svg"
 // eslint-disable-next-line react/prop-types
 const Issuance = ({
+  isWidth,
   title,
   cardImg,
   plate,
@@ -61,6 +63,13 @@ const Issuance = ({
 
   const limit = { marginRight: ".3rem!important", lineHeight: "2 !important" }
 
+  //handleVisiableDetails
+  const [visiableDetails, setVisiableDetails] = useState(false)
+
+  const handleVisiableDetails = () => {
+    setVisiableDetails(!visiableDetails)
+  }
+
   return (
     <div className={style.background}>
       <div
@@ -68,7 +77,10 @@ const Issuance = ({
         style={{ paddingTop: "1.5rem", top: "55vh", left: "64vw" }}
       >
         <div className={style.header}>
-          <h1 className={appStyle.pageTitle} style={{ marginLeft: "-.8rem" }}>
+          <h1
+            className={`${style.header__title} ${appStyle.pageTitle} `}
+            style={{ marginLeft: "-.8rem" }}
+          >
             {title}
           </h1>
           <img
@@ -85,9 +97,33 @@ const Issuance = ({
             {/*<div className={`card-html card-dark`} style={{marginLeft:'-.5rem'}}>*/}
             {/*    <div className={`flex`} style={{marginTop:'-1.5rem'}}><h2 >5676 38 • • </h2> <h2 style={{ marginLeft: "1rem" }}> • • • • </h2> <h2 style={{ marginLeft: "1rem" }}> • • • •</h2> </div>*/}
             {/*</div>*/}
-            {cardImg}
 
-            <div className={style.text}>
+            {isWidth ? (
+              <>{cardImg}</>
+            ) : (
+              <div className={style.card_details}>
+                <div className={style.card_img}>{cardImg} </div>
+                <div className={style.card_details__btn}>
+                  <button
+                    className={style.btn_green}
+                    onClick={handleVisiableDetails}
+                  >
+                    Details
+                  </button>
+                  <img
+                    className={!visiableDetails ? style.card_arrow__down : ""}
+                    src={arrowDown}
+                    alt="arrow"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div
+              className={`${style.text} ${
+                !visiableDetails ? appStyle.active : ""
+              }`}
+            >
               <div className={style.field}>
                 <p className={appStyle.titleText}>Currency</p>
                 <p className={appStyle.mainText}>{plate.currency}</p>

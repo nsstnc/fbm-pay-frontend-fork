@@ -80,6 +80,7 @@ const Plates = ({ plates }) => {
                   </div>
                 </div>
               }
+              isWidth={isWidth}
               oneCardImg={<img alt="Card" src={plate.cardimg} />}
               plate={plate}
             />

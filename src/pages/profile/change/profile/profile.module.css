@@ -1,55 +1,110 @@
 .pageContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    gap: 1rem;
-    margin: 2rem 0;
-    padding: 1rem 2rem;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem 2rem;
 
-    background-color: white;
-    box-shadow: 0 4px 15px 0 #8990D226;
-    border-radius: 16px;
-
+  background-color: white;
+  box-shadow: 0 4px 15px 0 #8990d226;
+  border-radius: 16px;
 }
 
 .flex {
-    display: flex;
-    align-items: center;
-    gap: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
 }
 
 .button {
-    width: 10rem;
+  width: 10rem;
 }
 
 .input {
-    width: 30rem;
-    gap: 0 1rem;
+  width: 30rem;
+  gap: 0 1rem;
 }
 
 .andButton {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 0 1rem;
+
+  > .Button {
     width: max-content;
-    gap: 0 1rem;
+  }
 
-    > .Button {
-        width: max-content;
-    }
-
-    > .input1 {
-        width: 21rem;
-    }
+  > .input1 {
+    width: 21rem;
+  }
 }
 
 .buttons {
-    display: flex;
-    margin-top: 2rem;
-    gap: 0 1rem;
-    width: max-content;
+  display: flex;
+  margin-top: 2rem;
+  gap: 0 1rem;
+  width: max-content;
 
-    > * {
-        padding: .5rem 3rem;
-    }
+  > * {
+    padding: 0.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .buttons {
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+
+    width: 100%;
+    /* margin-top: -28px !important; */
+    padding: 0;
+  }
+
+  .btn_request_code {
+    width: 100%;
+  }
+
+  .andButton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .Button {
+    width: 100% !important;
+  }
+
+  .input1 {
+    width: 100% !important;
+  }
+
+  .btn_change_cancel {
+    display: flex;
+    justify-content: space-between !important;
+    align-items: ;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .btn_change,
+  .btn_white__cancel {
+    /* width: 100%; */
+  }
+
+  .buttons_change_cancel {
+    height: 200px !important;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .btn_flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }

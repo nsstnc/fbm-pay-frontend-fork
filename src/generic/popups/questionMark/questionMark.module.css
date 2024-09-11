@@ -1,62 +1,116 @@
 .question {
-    position: relative;
+  position: relative;
 
-    &:hover > .hint {
-        display: initial;
-    }
+  &:hover > .hint {
+    display: initial;
+  }
 }
 
 .img {
-    background-size: 1.5rem;
+  background-size: 1.5rem;
 }
 
 .hint {
-    position: absolute;
+  position: absolute;
 
-    display: none;
+  display: none;
 
-    width: 20rem;
-    padding: 1rem;
+  width: 20rem;
+  padding: 1rem;
 
-    background-color: #2F3035;
-    box-shadow: 0 2px 8px 0 #8990D226;
-    border-radius: 8px;
+  background-color: #2f3035;
+  box-shadow: 0 2px 8px 0 #8990d226;
+  border-radius: 8px;
 
-    z-index: 10;
-    right:.1vw;
-top: -10px;
+  z-index: 10;
+  right: 0.1vw;
+  top: -10px;
 }
 
 .text {
-    top: .2rem;
-    right: .2rem;
+  top: 0.2rem;
+  right: 0.2rem;
 
-    color: white;
+  color: white;
 }
 
-
 .triangle {
-
 }
 
 .left {
-
 }
 
 .top {
-    top: -5rem !important;
-    left: -10rem !important;
+  top: -5rem !important;
+  left: -10rem !important;
 }
 
 .bottom {
-
 }
 
 .right {
-    top: 0 !important;
-    left: 5rem !important;
+  top: 0 !important;
+  left: 5rem !important;
 }
 
-.rightSide{
-left: 10rem!important;
+.rightSide {
+  left: 10rem !important;
+}
+
+@media screen and (max-width: 500px) {
+  .question {
+    width: 100%;
+    display: flex;
+  }
+  .hint {
+    width: 80% !important;
+
+    top: -10px;
+    left: 30px;
+  }
+
+  .hint2 {
+    top: 30px;
+    left: -150px;
+    gap: 18px !important;
+    width: 200px !important;
+  }
+
+  .right {
+    width: 100% !important;
+  }
+
+  .text {
+    display: flex;
+  }
+
+  .cardContents {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .card {
+    font-size: 13px !important;
+    width: 100%;
+    gap: 12px !important;
+  }
+
+  .arrow_black {
+    position: absolute;
+    left: 143px;
+    top: -23px;
+    transform: rotate(90deg);
+  }
+
+  .arrow_black__left {
+    position: absolute;
+    left: -5px;
+    top: 15px;
+  }
+
+  .flex {
+  }
 }

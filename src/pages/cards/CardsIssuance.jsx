@@ -18,6 +18,8 @@ import cardGreenOne from "../../image/cards/onegreenCard.svg"
 import visa from "../../image/cards/icons/visa.svg"
 import cardGreen2One from "../../image/cards/oneGreenCard2.svg"
 import { handleWidth } from "../../generic/handleWidth/handleWidth.js"
+import { useValue } from "../../generic/model/value.jsx"
+import { $isMenuOpened } from "../../generic/model/menuModel.js"
 
 const plates = [
   {
@@ -161,11 +163,14 @@ const CardsIssuance = () => {
   //handleWidth
   let isWidth = handleWidth()
 
+  //handleToggle
+  const [opened] = useValue($isMenuOpened)
+
   if (loading) {
     return (
       <div className={appStyle.page}>
         <Menu />
-        <div className={appStyle.main}>
+        <div className={`${appStyle.main} `}>
           <h1 className={appStyle.pageTitle}>Сards</h1>
 
           <HeaderItems
@@ -255,7 +260,8 @@ const CardsIssuance = () => {
   return (
     <div className={appStyle.page}>
       <Menu />
-      <div className={appStyle.main}>
+
+      <div className={`${appStyle.main} ${opened ? style.active : ""}`}>
         <h1 className={appStyle.pageTitle}>Сards</h1>
 
         <HeaderItems

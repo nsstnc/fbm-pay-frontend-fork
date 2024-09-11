@@ -1,46 +1,51 @@
-import style from "./metapay.module.css";
-import appStyle from "../../app.module.css";
-import Menu from "../../generic/menu/Menu.jsx";
-import HeaderItems from "../../generic/headerItem/HeaderItems.jsx";
-import Results from "../../generic/filter/result/Results.jsx";
-import { DS3_ROUTE, METAPAY_ROUTE } from "../../routing/consts.js";
-import Result from "../../generic/filter/result/Result.jsx";
-import mastercard from "../../image/cards/icons/masterCard.svg";
-import card from "../../image/cardNumbers.svg";
-import copy from "../../image/copyIcon.svg";
-import WhiteButton from "../../generic/buttons/WhiteButton.jsx";
-import showMore from "../../image/showMore.svg";
-import Footer from "../../generic/footer/Footer.jsx";
-import ShowMore from "../../generic/filter/showMore/ShowMore.jsx";
-import questionMarkBlack from "../../image/questionMarkBlack.svg";
-import Card from "../../generic/filter/result/card/Card.jsx";
-import refresh from "../../image/refreshIcon.svg";
-import { useEffect, useState } from "react";
+import style from "./metapay.module.css"
+import appStyle from "../../app.module.css"
+import Menu from "../../generic/menu/Menu.jsx"
+import HeaderItems from "../../generic/headerItem/HeaderItems.jsx"
+import Results from "../../generic/filter/result/Results.jsx"
+import { DS3_ROUTE, METAPAY_ROUTE } from "../../routing/consts.js"
+import Result from "../../generic/filter/result/Result.jsx"
+import mastercard from "../../image/cards/icons/masterCard.svg"
+import card from "../../image/cardNumbers.svg"
+import copy from "../../image/copyIcon.svg"
+import WhiteButton from "../../generic/buttons/WhiteButton.jsx"
+import showMore from "../../image/showMore.svg"
+import Footer from "../../generic/footer/Footer.jsx"
+import ShowMore from "../../generic/filter/showMore/ShowMore.jsx"
+import questionMarkBlack from "../../image/questionMarkBlack.svg"
+import Card from "../../generic/filter/result/card/Card.jsx"
+import refresh from "../../image/refreshIcon.svg"
+import { useEffect, useState } from "react"
+import { useValue } from "../../generic/model/value.jsx"
+import { $isMenuOpened } from "../../generic/model/menuModel.js"
 
 const Metapay = () => {
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(false)
 
   const handleClick = (e) => {
-    console.log(e);
-    e.preventDefault();
-    setIsToggled(true);
-  };
+    console.log(e)
+    e.preventDefault()
+    setIsToggled(true)
+  }
 
   useEffect(() => {
     if (isToggled) {
       const timer = setTimeout(() => {
-        setIsToggled(false);
-      }, 2000);
+        setIsToggled(false)
+      }, 2000)
 
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer)
     }
-  }, [isToggled]);
+  }, [isToggled])
+
+  //handleToggle
+  const [opened] = useValue($isMenuOpened)
 
   return (
     <div className={appStyle.page}>
       <Menu />
 
-      <div className={appStyle.main}>
+      <div className={`${appStyle.main} ${opened ? appStyle.active : ""}`}>
         <h1 className={appStyle.pageTitle}>METAPAY and 3DS OTP codes</h1>
 
         <HeaderItems
@@ -143,7 +148,7 @@ const Metapay = () => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Metapay;
+export default Metapay

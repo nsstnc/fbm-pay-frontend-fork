@@ -33,6 +33,6 @@
     margin-bottom: 1rem;
   }
   .child:nth-child(3) {
-    flex-basis: 100%; /* Третий элемент занимает всю ширину и переносится на новую строку */
+    flex-basis: 100%;
   }
 }

@@ -1,27 +1,36 @@
-import style from "./settings.module.css";
-import appStyle from "../../../app.module.css";
-import statusStyle from "../../../generic/status/status.module.css";
-import Menu from "../../../generic/menu/Menu.jsx";
-import HeaderItems from "../../../generic/headerItem/HeaderItems.jsx";
+import style from "./settings.module.css"
+import appStyle from "../../../app.module.css"
+import statusStyle from "../../../generic/status/status.module.css"
+import Menu from "../../../generic/menu/Menu.jsx"
+import HeaderItems from "../../../generic/headerItem/HeaderItems.jsx"
 import {
   PROFILE_CHANGE_PASSWORD_ROUTE,
   PROFILE_CHANGE_PROFILE_ROUTE,
   PROFILE_LIMITS_ROUTE,
   PROFILE_SETTINGS_ROUTE,
-} from "../../../routing/consts.js";
-import Status from "../../../generic/status/Status.jsx";
-import Field from "./field/Field.jsx";
-import GreenButton from "../../../generic/buttons/GreenButton.jsx";
-import viewPassword from "../../../image/viewPasswordGreen.svg";
-import Footer from "../../../generic/footer/Footer.jsx";
-import Divider from "../../../generic/divider/Divider.jsx";
+} from "../../../routing/consts.js"
+import Status from "../../../generic/status/Status.jsx"
+import Field from "./field/Field.jsx"
+import GreenButton from "../../../generic/buttons/GreenButton.jsx"
+import viewPassword from "../../../image/viewPasswordGreen.svg"
+import Footer from "../../../generic/footer/Footer.jsx"
+import Divider from "../../../generic/divider/Divider.jsx"
+import { useValue } from "../../../generic/model/value.jsx"
+import { $isMenuOpened } from "../../../generic/model/menuModel.js"
+import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
 
 const Settings = () => {
+  //hanldeToggle
+  const [opened] = useValue($isMenuOpened)
+
+  //handleWidth
+  let isWidth = handleWidth()
+
   return (
     <div className={appStyle.page}>
       <Menu />
 
-      <div className={appStyle.main}>
+      <div className={`${appStyle.main} ${opened ? appStyle.active : ""}`}>
         <h1 className={appStyle.pageTitle}>Profile</h1>
 
         <HeaderItems
@@ -112,16 +121,34 @@ const Settings = () => {
 
           <Divider />
 
-          <Field
-            title="Two-factor authentication*"
-            subTitle="We do not allow you to turn it off for security reasons."
-            value={
-              <label style={{ opacity: "0.7" }}>
-                {" "}
-                <input type="checkbox" className={`switch`} checked />{" "}
-              </label>
-            }
-          />
+          {isWidth ? (
+            <Field
+              title="Two-factor authentication*"
+              subTitle="We do not allow you to turn it off for security reasons."
+              value={
+                <label style={{ opacity: "0.7" }}>
+                  {" "}
+                  <input type="checkbox" className={`switch`} checked />{" "}
+                </label>
+              }
+            />
+          ) : (
+            <Field
+              title="Two-factor authentication*"
+              subTitle=""
+              value={
+                <div className={style.flex}>
+                  <p>
+                    We do not allow you to turn it off for security reasons.
+                  </p>
+                  <label style={{ opacity: "0.7" }}>
+                    {" "}
+                    <input type="checkbox" className={`switch`} checked />{" "}
+                  </label>
+                </div>
+              }
+            />
+          )}
 
           <Divider />
 
@@ -149,7 +176,7 @@ const Settings = () => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings
