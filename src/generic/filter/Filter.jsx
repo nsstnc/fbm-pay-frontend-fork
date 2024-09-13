@@ -8,6 +8,7 @@ import TextButton from "../buttons/TextButton.jsx"
 import ShowMore from "./showMore/ShowMore.jsx"
 import showMore from "../../image/showMore.svg"
 import Inputs from "./inputs/Inputs.jsx"
+import Button from "../../generic/buttons/Button.jsx"
 import Results from "./result/Results.jsx"
 import React, { useEffect, useState } from "react"
 import { handleWidth } from "../../generic/handleWidth/handleWidth"
@@ -66,7 +67,7 @@ const Filter = ({
           </div>
         </div>
         {!isWidth ? (
-          <div className={style.filter_download}>
+          <div className={style.filter_download} onClick={toggleBlock}>
             <TextButton
               text="Filters"
               link={""}
@@ -101,13 +102,17 @@ const Filter = ({
 
       {/* Отображаем только выбранное количество результатов */}
       <Results results={results.slice(0, itemsToShow + 1)} preload={preload} />
-
-      <ShowMore
-        text="Show 25"
-        img={<img alt="Show more" src={showMore} />}
-        subText={`${itemsToShow} of ${results.length}`}
-        onShowMoreChange={handleShowMoreChange}
-      />
+      {!isWidth && (
+        <div className={style.content_card_show}>
+          <Button text="Create card" link={"/cards/issuance"} />
+          <ShowMore
+            text="Show 25"
+            img={<img alt="Show more" src={showMore} />}
+            subText={`${itemsToShow} of ${results.length}`}
+            onShowMoreChange={handleShowMoreChange}
+          />
+        </div>
+      )}
     </div>
   )
 }

@@ -529,7 +529,7 @@ const MenuItems = ({ totalBalance }) => {
         }
         link={PROFILE_SETTINGS_ROUTE}
       />
-      {/*<MenuItem*/}
+      {/* <MenuItem*/}
       {/*  title="Support"*/}
       {/*  image={*/}
       {/*    <svg*/}
@@ -580,7 +580,7 @@ const MenuItems = ({ totalBalance }) => {
       {/*    </svg>*/}
       {/*  }*/}
       {/*  link={SUPPORT_ROUTE}*/}
-      {/*/>*/}
+      {/* /> */}
     </div>
   )
 }

@@ -1,55 +1,57 @@
-import appStyle from "../../../app.module.css";
-import Menu from "../../../generic/menu/Menu.jsx";
-import style from "./cardDetails.module.css";
-import TextButton from "../../../generic/buttons/TextButton.jsx";
-import back from "../../../image/arrowBack.svg";
-import mastercard from "../../../image/cards/oneBlackCard.svg";
-import changeBlack from "../../../image/changeTotalBlack.svg";
-import pause from "../../../image/pause.svg";
-import stop from "../../../image/stop.svg";
-import add from "../../../image/plusAdd.svg";
-import addWhite from "../../../image/plus.svg";
-import payments from "../../../image/payments.svg";
-import checkOn from "../../../image/checkOn.svg";
-import mastercardIcon from "../../../image/cards/icons/masterCard.svg";
-import pdf from "../../../image/pdf.svg";
-import Status from "../../../generic/status/Status.jsx";
-import statusStyle from "../../../generic/status/status.module.css";
-import Button from "../../../generic/buttons/Button.jsx";
-import {CARDS_ALL_ROUTE, CARDS_ISSUANCE_ROUTE} from "../../../routing/consts.js";
-import ResultsDetails from "../../../generic/filter/result/ResultsDetails.jsx";
-import ResultDetails from "../../../generic/filter/result/ResultDetails.jsx";
-import download from "../../../image/downloadIcon.svg";
-import Card from "../../../generic/filter/result/card/Card.jsx";
-import ShowMore from "../../../generic/filter/showMore/ShowMore.jsx";
-import WhiteButton from "../../../generic/buttons/WhiteButton.jsx";
-import Footer from "../../../generic/footer/Footer.jsx";
-import refresh from "../../../image/refreshIcon.svg";
-import { useEffect, useState } from "react";
-import { useLocation } from 'react-router-dom';
+import appStyle from "../../../app.module.css"
+import Menu from "../../../generic/menu/Menu.jsx"
+import style from "./cardDetails.module.css"
+import TextButton from "../../../generic/buttons/TextButton.jsx"
+import back from "../../../image/arrowBack.svg"
+import mastercard from "../../../image/cards/oneBlackCard.svg"
+import changeBlack from "../../../image/changeTotalBlack.svg"
+import pause from "../../../image/pause.svg"
+import stop from "../../../image/stop.svg"
+import add from "../../../image/plusAdd.svg"
+import addWhite from "../../../image/plus.svg"
+import payments from "../../../image/payments.svg"
+import checkOn from "../../../image/checkOn.svg"
+import mastercardIcon from "../../../image/cards/icons/masterCard.svg"
+import pdf from "../../../image/pdf.svg"
+import Status from "../../../generic/status/Status.jsx"
+import statusStyle from "../../../generic/status/status.module.css"
+import Button from "../../../generic/buttons/Button.jsx"
+import {
+  CARDS_ALL_ROUTE,
+  CARDS_ISSUANCE_ROUTE,
+} from "../../../routing/consts.js"
+import ResultsDetails from "../../../generic/filter/result/ResultsDetails.jsx"
+import ResultDetails from "../../../generic/filter/result/ResultDetails.jsx"
+import download from "../../../image/downloadIcon.svg"
+import Card from "../../../generic/filter/result/card/Card.jsx"
+import ShowMore from "../../../generic/filter/showMore/ShowMore.jsx"
+import WhiteButton from "../../../generic/buttons/WhiteButton.jsx"
+import Footer from "../../../generic/footer/Footer.jsx"
+import refresh from "../../../image/refreshIcon.svg"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 
 const CardDetails = () => {
-    const location = useLocation();
-  const { cardData } = location.state || {};
-  console.log(cardData);
+  const location = useLocation()
+  const { cardData } = location.state || {}
+  console.log(cardData)
 
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(false)
 
   const handleClick = (e) => {
-    console.log(e);
-    e.preventDefault();
-    setIsToggled(true);
-  };
+    e.preventDefault()
+    setIsToggled(true)
+  }
 
   useEffect(() => {
     if (isToggled) {
       const timer = setTimeout(() => {
-        setIsToggled(false);
-      }, 2000);
+        setIsToggled(false)
+      }, 2000)
 
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer)
     }
-  }, [isToggled]);
+  }, [isToggled])
 
   return (
     <div className={appStyle.page}>
@@ -92,7 +94,7 @@ const CardDetails = () => {
                       marginTop: "3px",
                     }}
                   >
-                      {cardData.expire_date}
+                    {cardData.expire_date}
                   </h2>{" "}
                   <h3 style={{ marginLeft: "4.1rem", fontSize: "0.8rem" }}>
                     CVV{" "}
@@ -105,7 +107,7 @@ const CardDetails = () => {
                     }}
                   >
                     {" "}
-                      {cardData.cvv}{" "}
+                    {cardData.cvv}{" "}
                   </h2>
                 </div>
               </div>
@@ -151,7 +153,9 @@ const CardDetails = () => {
 
                 <div className={style.contentHeader2}>
                   <div>
-                    <h2 className={appStyle.pageTitle}>{parseFloat(cardData.balance.value).toFixed(2)}</h2>
+                    <h2 className={appStyle.pageTitle}>
+                      {parseFloat(cardData.balance.value).toFixed(2)}
+                    </h2>
                     <img alt="Add" src={add} />
                   </div>
 
@@ -171,7 +175,7 @@ const CardDetails = () => {
                             color: "#464646",
                           }}
                         >
-                            #{String(cardData.account.iban).slice(-6)}
+                          #{String(cardData.account.iban).slice(-6)}
                         </p>
                       </div>
                     </div>
@@ -230,7 +234,10 @@ const CardDetails = () => {
                       borderRadius: "6px",
                     }}
                   >
-                    <option value="">{String(cardData.account.name).split(' ')[0]} {cardData.account.email}</option>
+                    <option value="">
+                      {String(cardData.account.name).split(" ")[0]}{" "}
+                      {cardData.account.email}
+                    </option>
                   </select>
                 </div>
 
@@ -255,21 +262,27 @@ const CardDetails = () => {
                       <p className={`${appStyle.hint} ${appStyle.smallerText}`}>
                         1 day
                       </p>
-                      <p className={appStyle.mainText}>{parseFloat(cardData.limits.daily.value).toFixed(2)}</p>
+                      <p className={appStyle.mainText}>
+                        {parseFloat(cardData.limits.daily.value).toFixed(2)}
+                      </p>
                     </div>
 
                     <div className={style.column}>
                       <p className={`${appStyle.hint} ${appStyle.smallerText}`}>
                         7 day
                       </p>
-                      <p className={appStyle.mainText}>{parseFloat(cardData.limits.weekly.value).toFixed(2)}</p>
+                      <p className={appStyle.mainText}>
+                        {parseFloat(cardData.limits.weekly.value).toFixed(2)}
+                      </p>
                     </div>
 
                     <div className={style.column}>
                       <p className={`${appStyle.hint} ${appStyle.smallerText}`}>
                         30 day
                       </p>
-                      <p className={appStyle.mainText}>{parseFloat(cardData.limits.monthly.value).toFixed(2)}</p>
+                      <p className={appStyle.mainText}>
+                        {parseFloat(cardData.limits.monthly.value).toFixed(2)}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -471,7 +484,7 @@ const CardDetails = () => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardDetails;
+export default CardDetails

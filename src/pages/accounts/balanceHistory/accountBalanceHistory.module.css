@@ -54,4 +54,11 @@
   .active {
     display: none;
   }
+
+  .refillMethod {
+    padding: 1px 0px !important;
+    width: 139px !important;
+
+    text-align: center;
+  }
 }

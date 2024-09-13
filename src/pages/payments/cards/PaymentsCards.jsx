@@ -1,51 +1,55 @@
-import style from "./paymentsCards.module.css";
-import appStyle from "../../../app.module.css";
-import Menu from "../../../generic/menu/Menu.jsx";
-import HeaderItems from "../../../generic/headerItem/HeaderItems.jsx";
+import style from "./paymentsCards.module.css"
+import appStyle from "../../../app.module.css"
+import Menu from "../../../generic/menu/Menu.jsx"
+import HeaderItems from "../../../generic/headerItem/HeaderItems.jsx"
 import {
   PAYMENTS_ACCOUNTS_ROUTE,
   PAYMENTS_CARDS_ROUTE,
-} from "../../../routing/consts.js";
-import Filter from "../../../generic/filter/Filter.jsx";
-import Footer from "../../../generic/footer/Footer.jsx";
-import Input from "../../../generic/input/Input.jsx";
-import Result from "../../../generic/filter/result/Result.jsx";
-import Status from "../../../generic/status/Status.jsx";
-import statusStyle from "../../../generic/status/status.module.css";
-import Card from "../../../generic/filter/result/card/Card.jsx";
-import mastercard from "../../../image/cards/icons/masterCard.svg";
-import FilterTransactions from "./filterTransactions/FilterTransactions.jsx";
-import transactions from "./filterTransactions/transactions.js";
-import handleChange from "./handleChange/handleChange.js";
-import { useEffect, useState } from "react";
+} from "../../../routing/consts.js"
+import Filter from "../../../generic/filter/Filter.jsx"
+import Footer from "../../../generic/footer/Footer.jsx"
+import Input from "../../../generic/input/Input.jsx"
+import Result from "../../../generic/filter/result/Result.jsx"
+import Status from "../../../generic/status/Status.jsx"
+import statusStyle from "../../../generic/status/status.module.css"
+import Card from "../../../generic/filter/result/card/Card.jsx"
+import mastercard from "../../../image/cards/icons/masterCard.svg"
+import FilterTransactions from "./filterTransactions/FilterTransactions.jsx"
+import transactions from "./filterTransactions/transactions.js"
+import handleChange from "./handleChange/handleChange.js"
+import { useEffect, useState } from "react"
 // import handleClickFilter from "../handleClick/handleClickFilter.js";
+import { useValue } from "../../../generic/model/value.jsx"
+import { $isMenuOpened } from "../../../generic/model/menuModel.js"
 
 const PaymentsCards = () => {
-  const [onClick, setOnClick] = useState();
+  const [onClick, setOnClick] = useState()
 
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(false)
 
   const handleClick = (e) => {
-    console.log(e);
-    e.preventDefault();
-    setIsToggled(true);
-  };
+    console.log(e)
+    e.preventDefault()
+    setIsToggled(true)
+  }
 
   useEffect(() => {
     if (isToggled) {
       const timer = setTimeout(() => {
-        setIsToggled(false);
-      }, 2000);
+        setIsToggled(false)
+      }, 2000)
 
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer)
     }
-  }, [isToggled]);
+  }, [isToggled])
+
+  const [opened] = useValue($isMenuOpened)
 
   return (
     <div className={appStyle.page}>
       <Menu />
 
-      <div className={appStyle.main}>
+      <div className={`${appStyle.main} ${opened ? appStyle.active : ""}`}>
         <h1 className={appStyle.pageTitle}>Payments</h1>
 
         <HeaderItems texts={["All payments"]} links={[PAYMENTS_CARDS_ROUTE]} />
@@ -62,7 +66,7 @@ const PaymentsCards = () => {
                   type="text"
                   placeholder="GB16GUAV00993200022188 (OWS1690 OWS1690, Main Balance) 0.06 EUR"
                   onChange={(target) => {
-                    handleChange(target);
+                    handleChange(target)
                   }}
                 />,
                 <Input
@@ -70,7 +74,7 @@ const PaymentsCards = () => {
                   type="text"
                   placeholder="For today"
                   onChange={(target) => {
-                    handleChange(target);
+                    handleChange(target)
                   }}
                 />,
                 <Input
@@ -78,7 +82,7 @@ const PaymentsCards = () => {
                   type="text"
                   placeholder="Debit and Credit"
                   onChange={(target) => {
-                    handleChange(target);
+                    handleChange(target)
                   }}
                 />,
 
@@ -87,7 +91,7 @@ const PaymentsCards = () => {
                   type="text"
                   placeholder="Debit and Credit"
                   onChange={(target) => {
-                    handleChange(target);
+                    handleChange(target)
                   }}
                 />,
               ],
@@ -225,7 +229,7 @@ const PaymentsCards = () => {
                       </div>,
                     ]}
                   />
-                );
+                )
               }),
 
               // <Result
@@ -323,7 +327,7 @@ const PaymentsCards = () => {
         <Footer />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PaymentsCards;
+export default PaymentsCards

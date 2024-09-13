@@ -29,6 +29,7 @@ import { CardsContext } from "../../context/CardsContext"
 import NoDataMessage from "../../../generic/noDataMessage/NoDataMessage.jsx"
 import { useValue } from "../../../generic/model/value.jsx"
 import { $isMenuOpened } from "../../../generic/model/menuModel"
+import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
 
 const CardsAll = () => {
   const [isToggled, setIsToggled] = useState(true)
@@ -129,6 +130,9 @@ const CardsAll = () => {
   //hanldeToggle
   const [opened] = useValue($isMenuOpened)
 
+  //handleWidth
+  let isWidth = handleWidth()
+
   return (
     <div className={appStyle.page}>
       <Menu />
@@ -206,26 +210,45 @@ const CardsAll = () => {
             something={[
               <Divider />,
               <div className={style.buttons}>
-                <div>
-                  <Button text="Create card" link={"/cards/issuance"} />
-                </div>
+                {isWidth ? (
+                  <>
+                    <div>
+                      <Button text="Create card" link={"/cards/issuance"} />
+                    </div>
 
-                <div className={style.rightButtons}>
-                  <div>
-                    <YellowButton text="Set Limits" />
+                    <div className={style.rightButtons}>
+                      <div className={style.rightButton}>
+                        <YellowButton text="Set Limits" />
+                      </div>
+                      <div className={style.rightButton}>
+                        <YellowButton text="Hold Card" />
+                        <YellowButton text="Unhold Card" />
+                      </div>
+                      <div className={style.rightButton}>
+                        <YellowButton text="Activate 3DS" />
+                        <YellowButton text="Deactivate 3DS" />
+                      </div>
+                      <div className={style.rightButton}>
+                        <RedButton text="Close Card" />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className={style.rightButtons}>
+                    <div className={style.rightButton}>
+                      <YellowButton text="Hold Card" />
+                      <YellowButton text="Unhold Card" />
+                    </div>
+                    <div className={style.rightButton}>
+                      <YellowButton text="Activate 3DS" />
+                      <YellowButton text="Deactivate 3DS" />
+                    </div>
+                    <div className={style.rightButton}>
+                      <YellowButton text="Set Limits" />
+                      <RedButton text="Close Card" />
+                    </div>
                   </div>
-                  <div>
-                    <YellowButton text="Hold Card" />
-                    <YellowButton text="Unhold Card" />
-                  </div>
-                  <div>
-                    <YellowButton text="Activate 3DS" />
-                    <YellowButton text="Deactivate 3DS" />
-                  </div>
-                  <div>
-                    <RedButton text="Close Card" />
-                  </div>
-                </div>
+                )}
               </div>,
             ]}
             results={
