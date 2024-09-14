@@ -1,9 +1,21 @@
 .buttons {
-    display: flex;
+  display: flex;
 
-    gap: 0 1rem;
+  gap: 0 1rem;
 }
 
 .button {
-    width: 10rem;
+  width: 10rem;
+}
+
+@media screen and (max-width: 500px) {
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .button {
+    width: 45%;
+  }
 }

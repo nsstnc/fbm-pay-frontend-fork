@@ -32,7 +32,9 @@ img.logo-menu {
 @media screen and (max-width: 500px) {
   .menu {
     width: 100%;
-    padding: 0px;
+    height: 100%;
+    padding: 0px 0px 60px 0px;
+    gap: 20px;
     margin-top: 60px;
   }
 

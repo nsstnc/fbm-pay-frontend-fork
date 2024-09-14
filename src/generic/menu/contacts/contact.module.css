@@ -29,10 +29,13 @@
 
 @media screen and (max-width: 500px) {
   .contact {
-    flex-basis: 50%;
-    margin-bottom: 1rem;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* flex-basis: 50%; */
+    margin-top: 0;
   }
-  .child:nth-child(3) {
+
+  /* .child:nth-child(3) {
     flex-basis: 100%;
-  }
+  } */
 }

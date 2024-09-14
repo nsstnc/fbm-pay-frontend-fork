@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 500px) {
   .button {
-    width: 165px;
+    width: max-content;
     height: 38px;
   }
   .innerButton {
