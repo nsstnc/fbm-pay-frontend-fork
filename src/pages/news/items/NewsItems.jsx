@@ -1,7 +1,6 @@
-import {NEW_PAGE_ROUTE} from "../../../routing/consts.js";
-import NewsItem from "./NewsItem.jsx";
-import style from './newsItems.module.css'
-
+import { NEW_PAGE_ROUTE } from "../../../routing/consts.js"
+import NewsItem from "./NewsItem.jsx"
+import style from "./newsItems.module.css"
 
 const NewsItems = () => {
   return (

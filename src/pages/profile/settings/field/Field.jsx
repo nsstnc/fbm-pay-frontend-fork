@@ -6,7 +6,7 @@ const Field = ({ title = "", subTitle = "", value = <></> }) => {
   return (
     <div className={style.field}>
       {/* <div> */}
-
+      
       <p className={`${appStyle.titleText} ${style.titleText}`}>{title}</p>
       <p className={appStyle.smallerText}>{subTitle}</p>
 

@@ -15,7 +15,7 @@ const QuestionMark = ({ text = "", position = "" }) => {
         />
       </div>
 
-      <div className={`${style.hint} ${style.hint2}`}>
+      <div className={`${style.hint} `}>
         <div className={`${position} ${style.text} ${appStyle.smallerText}`}>
           {text}
         </div>

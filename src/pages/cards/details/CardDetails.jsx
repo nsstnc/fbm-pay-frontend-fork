@@ -33,7 +33,8 @@ import { useLocation } from "react-router-dom"
 
 const CardDetails = () => {
   const location = useLocation()
-  const { cardData } = location.state || {}
+  console.log("location", location)
+  const { cardData = {} } = location.state || {}
   console.log(cardData)
 
   const [isToggled, setIsToggled] = useState(false)
@@ -42,6 +43,10 @@ const CardDetails = () => {
     e.preventDefault()
     setIsToggled(true)
   }
+
+  useEffect(() => {
+    console.log("cardData", { cardData })
+  }, [cardData])
 
   useEffect(() => {
     if (isToggled) {
@@ -154,7 +159,9 @@ const CardDetails = () => {
                 <div className={style.contentHeader2}>
                   <div>
                     <h2 className={appStyle.pageTitle}>
-                      {parseFloat(cardData.balance.value).toFixed(2)}
+                      {cardData?.balance?.value
+                        ? parseFloat(cardData.balance.value).toFixed(2)
+                        : "0.00"}
                     </h2>
                     <img alt="Add" src={add} />
                   </div>
@@ -167,7 +174,9 @@ const CardDetails = () => {
 
                       <div>
                         <p className={`${appStyle.mainText}`}>
-                          “{cardData.account.name}”
+                          “
+                          {cardData?.name ? cardData.name : "No name available"}
+                          ”
                         </p>
                         <p
                           className={`${appStyle.mainText}`}
@@ -175,7 +184,10 @@ const CardDetails = () => {
                             color: "#464646",
                           }}
                         >
-                          #{String(cardData.account.iban).slice(-6)}
+                          #
+                          {cardData?.account?.iban
+                            ? String(cardData.account.iban).slice(-6)
+                            : "not found iban"}
                         </p>
                       </div>
                     </div>
@@ -235,8 +247,12 @@ const CardDetails = () => {
                     }}
                   >
                     <option value="">
-                      {String(cardData.account.name).split(" ")[0]}{" "}
-                      {cardData.account.email}
+                      {cardData?.account?.name
+                        ? String(cardData.account.name).split(" ")[0]
+                        : "Name not available"}{" "}
+                      {cardData?.account?.email
+                        ? cardData.account.email
+                        : "not found email"}
                     </option>
                   </select>
                 </div>
@@ -263,7 +279,9 @@ const CardDetails = () => {
                         1 day
                       </p>
                       <p className={appStyle.mainText}>
-                        {parseFloat(cardData.limits.daily.value).toFixed(2)}
+                        {cardData?.limits?.daily?.value
+                          ? parseFloat(cardData.limits.daily.value).toFixed(2)
+                          : "0.00"}
                       </p>
                     </div>
 
@@ -272,7 +290,9 @@ const CardDetails = () => {
                         7 day
                       </p>
                       <p className={appStyle.mainText}>
-                        {parseFloat(cardData.limits.weekly.value).toFixed(2)}
+                        {cardData?.limits?.weekly?.value
+                          ? parseFloat(cardData.limits.weekly.value).toFixed(2)
+                          : "0.00"}
                       </p>
                     </div>
 
@@ -281,7 +301,9 @@ const CardDetails = () => {
                         30 day
                       </p>
                       <p className={appStyle.mainText}>
-                        {parseFloat(cardData.limits.monthly.value).toFixed(2)}
+                        {cardData?.limits?.monthly?.value
+                          ? parseFloat(cardData.limits.monthly.value).toFixed(2)
+                          : "0.00"}
                       </p>
                     </div>
                   </div>
