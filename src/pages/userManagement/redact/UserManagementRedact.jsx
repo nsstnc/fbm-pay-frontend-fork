@@ -10,8 +10,18 @@ import Button from "../../../generic/buttons/Button.jsx";
 import WhiteButtonCancel from "../../../generic/buttons/WhiteButtonBack.jsx";
 import {USER_MANAGEMENT_ROUTE} from "../../../routing/consts.js";
 import Field from "../../profile/settings/field/Field.jsx";
+import { useLocation } from "react-router-dom";
 
 const UserManagementRedact = () => {
+
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+
+  const name = params.get("name");
+  const email = params.get("email");
+
+
+
   return (
    <div className={appStyle.page}>
       <Menu/>
@@ -21,15 +31,17 @@ const UserManagementRedact = () => {
 
         <div className={style.content}>
           <div className={style.form} >
-            <Field title="Authorization E-mail*" value={
+            <Field title="Authorization E-mail" value={
               <div className={style.input} style={{marginLeft: '-105px'}}>
-                <Input styleF="borderRadius:'4px'" hint="Write authorization E-mail" type="email"/>
+                {email}
+                {/*<Input styleF="borderRadius:'4px'" hint="Write authorization E-mail" type="email" text={email}/>*/}
               </div>
             }/>
 
-            <Field title="Name*" value={
+            <Field title="Name" value={
               <div className={style.input} style={{marginLeft: '-105px'}}>
-                <Input style={{borderRadius:'4px'}} hint="Write user’s name" type="text"/>
+                {/*<Input style={{borderRadius:'4px'}} hint="Write user’s name" type="text"/>*/}
+                {name}
               </div>
             }/>
 

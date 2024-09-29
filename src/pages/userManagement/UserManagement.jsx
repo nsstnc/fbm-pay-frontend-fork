@@ -13,10 +13,12 @@ import Status from "../../generic/status/Status.jsx"
 import statusStyle from "../../generic/status/status.module.css"
 import arrowDown from "../../image/arrowDown.svg"
 import plusWhite from "../../image/plus.svg"
-import { USER_MANAGEMENT_ADD_ROUTE } from "../../routing/consts.js"
+import { USER_MANAGEMENT_ADD_ROUTE, USER_MANAGEMENT_REDACT_ROUTE } from "../../routing/consts.js"
 import Results from "../../generic/filter/result/Results.jsx"
 import { $isMenuOpened } from "../../generic/model/menuModel.js"
 import { useValue } from "../../generic/model/value.jsx"
+
+
 
 const UserManagement = () => {
   const columnStyle = {
@@ -171,7 +173,7 @@ const UserManagement = () => {
                     <div style={{ ...columnStyle, width: "8rem" }}>
                       <Status className={statusStyle.Blocked} text="Blocked" />
                     </div>,
-                    <Dots style={{ width: "2rem" }} />,
+                    <Dots style={{ width: "2rem" }} email="345123shrek@gmail.com" name="Ivan"/>,
                   ]}
                 />,
                 // Повторите этот паттерн для других строк данных

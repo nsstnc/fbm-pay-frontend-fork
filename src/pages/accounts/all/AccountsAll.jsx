@@ -14,7 +14,7 @@ import contentCardStyle from "../../../generic/contentCard/contentCard.module.cs
 import {
   ACCOUNTS_BALANCE_HISTORY_ROUTE,
   ACCOUNTS_FUNDING_ROUTE,
-  ALL_ACCOUNTS_ROUTE,
+  ALL_ACCOUNTS_ROUTE, USER_MANAGEMENT_ADD_ROUTE, USER_MANAGEMENT_REDACT_ROUTE,
 } from "../../../routing/consts.js"
 import Result from "../../../generic/filter/result/Result.jsx"
 import Filter from "../../../generic/filter/Filter.jsx"
@@ -89,6 +89,19 @@ const AccountsAll = () => {
             `Ошибка при получении пользователей аккаунта ${accountId}:`,
             result.data
           )
+          return [
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+              {'email': "egorgolubev0484@gmail.com"},
+          ]
+
           return [] // Возвращаем пустой массив, если success === false
         }
       } else {
@@ -285,7 +298,8 @@ const AccountsAll = () => {
                       <div className={style.button}>
                         <Button
                           text="Add Users"
-                          img={<img alt="Add user" src={plusIcon} />}
+                          img={<img alt="Add user" src={plusIcon}/>}
+                          link={USER_MANAGEMENT_ADD_ROUTE}
                         />
                       </div>
                     </div>,

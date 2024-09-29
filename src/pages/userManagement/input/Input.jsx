@@ -2,15 +2,15 @@ import style from './input.module.css'
 import appStyle from '../../../app.module.css'
 
 // eslint-disable-next-line react/prop-types
-const Input = ({text = '', type, hint = '', img = <></>,}) => {
+const Input = ({ text = '', type, hint = '', img = <></>, readOnly = false, onClick }) => {
 
   if (type === "onlyText") {
     return (
-      <label className={`${style.label} ${appStyle.titleText}`} style={{justifyContent:'flex-start'}}>
+      <label className={`${style.label} ${appStyle.titleText}`} style={{ justifyContent: 'flex-start' }}>
         {text}
         {hint}
       </label>
-    )
+    );
   }
 
   if (type === "") {
@@ -19,7 +19,7 @@ const Input = ({text = '', type, hint = '', img = <></>,}) => {
         {text}
         {img}
       </label>
-    )
+    );
   }
 
   if (type === 'checkbox') {
@@ -28,24 +28,26 @@ const Input = ({text = '', type, hint = '', img = <></>,}) => {
         {text}
         <input type={type}
                className={style.checkBox}
-               style={{borderRadius:'6px'}}
+               style={{ borderRadius: '6px' }}
         />
-        {/*<span className={style.customCheckBox}></span>*/}
       </label>
-    )
+    );
   }
 
   return (
-    <label className={`${style.label} ${appStyle.titleText}`} style={{borderRadius:'4px'}}>
+    <label className={`${style.label} ${appStyle.titleText}`} style={{ borderRadius: '4px' }}>
       {text}
-      <input type={type}
-             placeholder={hint}
-             className={style.input}
-             style={{borderRadius:'6px'}}
+      <input
+        type={type}
+        placeholder={hint}
+        className={style.input}
+        style={{ borderRadius: '6px', cursor: readOnly ? 'pointer' : 'auto' }}
+        readOnly={readOnly}
+        onClick={onClick}
       />
       {img}
     </label>
-  )
+  );
 }
 
-export default Input
+export default Input;

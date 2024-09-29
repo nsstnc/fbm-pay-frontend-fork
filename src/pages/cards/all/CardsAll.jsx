@@ -31,7 +31,7 @@ import { useValue } from "../../../generic/model/value.jsx"
 import { $isMenuOpened } from "../../../generic/model/menuModel"
 import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
 
-const CardsAll = () => {
+const  CardsAll = () => {
   const [isToggled, setIsToggled] = useState(true)
   const { cardsList, setCards } = useContext(CardsContext)
 
