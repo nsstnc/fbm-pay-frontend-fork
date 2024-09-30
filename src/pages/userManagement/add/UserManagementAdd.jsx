@@ -13,28 +13,174 @@ import Field from "../../profile/settings/field/Field.jsx"
 import {$isMenuOpened} from "../../../generic/model/menuModel.js"
 import {useValue} from "../../../generic/model/value.jsx"
 import {handleWidth} from "../../../generic/handleWidth/handleWidth.js"
-import React, {useState} from "react"
+import {useContext, useEffect, useState} from "react"
+import {AccountsContext} from "../../context/AccountsContext.jsx";
 
 //handleToggle
 
-
+// TODO настроить остаток полей и прописать запрос на создание пользователя
 const UserManagementAdd = () => {
+
+    const [formData, setFormData] = useState({
+        email: '',
+        name: '',
+        phone: '',
+        telegram: '',
+        otp_login: 'One time password received via E-mail',
+        otp_approve: 'One time password received via E-mail',
+        main_user_creation: false,
+        access_to_accounts: [],
+    });
+
+    // Функция для обновления otpLoginOption и otpApproveOption
+    const setOtpLoginOption = (value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            otp_login: value, // Привязка значения к полю otp_login
+        }));
+    };
+
+    const setOtpApproveOption = (value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            otp_approve: value, // Привязка значения к полю otp_approve
+        }));
+    };
+
+
+    const handleInputChange = (e) => {
+        const {name, value} = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    console.log(formData);
     const [opened] = useValue($isMenuOpened)
     const options = [
         'One time password received via Phone',
         'One time password received via E-mail',
         'One time password received via Telegram',
     ]
-
     const [visibleDropdownId, setVisibleDropdownId] = useState(null)
+    const [accessToAccounts, setAccessToAccounts] = useState([]);
+    const {accounts, setAccounts} = useContext(AccountsContext)
+    const handleDeleteAccount = (iban) => {
+        // Удаляем аккаунт из массива accessToAccounts
+        setAccessToAccounts(accessToAccounts.filter(account => account.iban !== iban));
+    };
+
+
+    const handleAccountClick = (account) => {
+        // Добавляем аккаунт в массив accessToAccounts, если его там еще нет
+        if (!accessToAccounts.includes(account)) {
+            setAccessToAccounts([...accessToAccounts, account]);
+        }
+        toggleDropdown(2); // Закрываем выпадающий список
+    };
+
+    const filteredAccounts = accounts.filter(account => !accessToAccounts.includes(account));
 
     const toggleDropdown = (Id) => {
         setVisibleDropdownId((prevId) => (prevId === Id ? null : Id))
     }
-    const [otpLoginOption, setOtpLoginOption] = React.useState("One time password received via E-mail");
-    const [otpApproveOption, setOtpApproveOption] = React.useState("One time password received via E-mail");
+
     //handleWidth
     let isWidth = handleWidth()
+
+    const fetchAccountUsers = async (accountId) => {
+        const url = `/api/accounts/${accountId}/users`
+        const headers = {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers,
+            })
+            if (response.ok) {
+                const result = await response.json()
+                if (result.success) {
+                    return result.data // Возвращаем список пользователей, если запрос успешен
+                } else {
+                    console.error(
+                        `Ошибка при получении пользователей аккаунта ${accountId}:`,
+                        result.data
+                    )
+                    return [] // Возвращаем пустой массив, если success === false
+                }
+            } else {
+                const errorText = await response.text()
+                console.error(
+                    `Ошибка при получении пользователей аккаунта ${accountId}:`,
+                    response.status,
+                    response.statusText,
+                    errorText
+                )
+                return []
+            }
+        } catch (error) {
+            console.error(
+                `Ошибка при получении пользователей аккаунта ${accountId}:`,
+                error
+            )
+            return []
+        }
+    }
+
+    const fetchAccounts = async () => {
+        const url = "/api/accounts"
+        const headers = {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers,
+            })
+
+            if (response.ok) {
+                const result = await response.json()
+                const accountsData = result.data
+
+                // Получаем список пользователей для каждого аккаунта
+                const accountsWithUsers = await Promise.all(
+                    accountsData.map(async (account) => {
+                        const users = await fetchAccountUsers(account.id)
+                        return {
+                            ...account,
+                            users: users,
+                        }
+                    })
+                )
+
+                setAccounts(accountsWithUsers)
+                console.log(accountsWithUsers)
+            } else {
+                const errorText = await response.text()
+                console.error(
+                    "Ошибка при получении данных аккаунтов:",
+                    response.status,
+                    response.statusText,
+                    errorText
+                )
+            }
+        } catch (error) {
+            console.error("Ошибка при получении данных аккаунтов:", error)
+        }
+    }
+
+    useEffect(() => {
+        fetchAccounts()
+    }, [])
+
 
     return (
         <div className={appStyle.page}>
@@ -52,9 +198,12 @@ const UserManagementAdd = () => {
                             value={
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
                                     <Input
+                                        name="email"
                                         styleF="borderRadius:'4px'"
                                         hint="Write authorization E-mail"
                                         type="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
                                     />
                                 </div>
                             }
@@ -65,6 +214,9 @@ const UserManagementAdd = () => {
                             value={
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
                                     <Input
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
                                         style={{borderRadius: "4px"}}
                                         hint="Write user’s name"
                                         type="text"
@@ -77,7 +229,12 @@ const UserManagementAdd = () => {
                             title="Phone"
                             value={
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
-                                    <Input hint="Write the phone" type="phone"/>
+                                    <Input
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        hint="Write the phone"
+                                        type="phone"/>
                                 </div>
                             }
                         />
@@ -86,7 +243,11 @@ const UserManagementAdd = () => {
                             title="Telegram ID*"
                             value={
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
-                                    <Input hint="Write the Telegram ID" type="text"/>
+                                    <Input name="telegram"
+                                           value={formData.telegram}
+                                           onChange={handleInputChange}
+                                           hint="Write the Telegram ID"
+                                           type="text"/>
                                 </div>
                             }
                         />
@@ -97,8 +258,9 @@ const UserManagementAdd = () => {
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
                                     <div>
                                         <Input
+                                            name="otp_login"
                                             readOnly={true}
-                                            hint={otpLoginOption}
+                                            hint={formData.otp_login}
                                             type="text"
                                             onClick={() => toggleDropdown(0)}
                                         />
@@ -155,8 +317,9 @@ const UserManagementAdd = () => {
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
                                     <div>
                                         <Input
+                                            name="otp_approve"
                                             readOnly={true}
-                                            hint={otpApproveOption}
+                                            hint={formData.otp_approve}
                                             type="text"
                                             onClick={() => toggleDropdown(1)}
                                         />
@@ -224,15 +387,17 @@ const UserManagementAdd = () => {
                                         <TextButton
                                             text="Add Account"
                                             img={<img alt="Add user" src={plusGreen}/>}
+                                            onClick={() => toggleDropdown(2)}
                                         />
-                                        <AddAccountPlate
-                                            text="GB16GUAV00993200022188 (OWS1690 OWS1690, Main Balance) 0.06 EUR"/>
+                                        {accessToAccounts.map((account, index) => (
+                                            <AddAccountPlate
+                                                key={index}
+                                                text={`${account.iban} ${parseFloat(account.balance).toFixed(2)}`}
+                                                onDelete={() => handleDeleteAccount(account.iban)}
+                                            />
+                                        ))}
 
-                                        <AddAccountPlate
-                                            text="GB16GUAV00993200022188 (OWS1690 OWS1690, Main Balance) 0.06 EUR"/>
 
-                                        <AddAccountPlate
-                                            text="GB16GUAV00993200022188 (OWS1690 OWS1690, Main Balance) 0.06 EUR"/>
                                     </div>
                                 </>
                             ) : (
@@ -242,16 +407,56 @@ const UserManagementAdd = () => {
                                         <TextButton
                                             text="Add Account"
                                             img={<img alt="Add user" src={plusGreen}/>}
+                                            onClick={() => toggleDropdown(2)}
                                         />
                                     </div>
                                     <div className={style.addAccount}>
-                                        <AddAccountPlate text="GB16GUAV00993200022188 (OWS1690 O..."/>
-
-                                        <AddAccountPlate text="GB16GUAV00993200022188 (OWS1690 O..."/>
-
-                                        <AddAccountPlate text="GB16GUAV00993200022188 (OWS1690 O..."/>
+                                        {accessToAccounts.map((account, index) => (
+                                            <AddAccountPlate
+                                                key={index}
+                                                text={`${account.iban} ${parseFloat(account.balance).toFixed(2)}`}
+                                                onDelete={() => handleDeleteAccount(account.iban)}
+                                            />
+                                        ))}
                                     </div>
                                 </>
+                            )}
+
+                            {visibleDropdownId === 2 && (
+                                <ul
+                                    style={{
+                                        listStyleType: "none",
+                                        padding: 0,
+                                        margin: 0,
+                                        maxHeight: "7rem",
+                                        overflowY: "auto",
+                                        overflowX: "hidden",
+                                        position: "absolute",
+                                        zIndex: 1000,
+                                        backgroundColor: "white",
+                                        border: "1px solid #ccc",
+                                        borderRadius: "4px",
+                                        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+                                    }}
+                                >
+                                    {filteredAccounts.map((account, index) => (
+                                        <li
+                                            key={index}
+                                            style={{
+                                                padding: "0.5rem",
+                                                borderBottom:
+                                                    index !== filteredAccounts.length - 1 ? "1px solid #ccc" : "none",
+                                                whiteSpace: "nowrap",
+                                                display: "block",
+                                                width: "max-content",
+                                                cursor: "pointer",
+                                            }}
+                                            onClick={() => handleAccountClick(account)} // Добавляем IBAN при клике
+                                        >
+                                            {account.iban} {parseFloat(account.balance).toFixed(2)}
+                                        </li>
+                                    ))}
+                                </ul>
                             )}
                         </div>
 

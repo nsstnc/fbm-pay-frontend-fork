@@ -2,7 +2,7 @@ import style from './input.module.css'
 import appStyle from '../../../app.module.css'
 
 // eslint-disable-next-line react/prop-types
-const Input = ({ text = '', type, hint = '', img = <></>, readOnly = false, onClick }) => {
+const Input = ({ name='', text = '', type, hint = '', img = <></>, readOnly = false, onClick, onChange }) => {
 
   if (type === "onlyText") {
     return (
@@ -26,9 +26,13 @@ const Input = ({ text = '', type, hint = '', img = <></>, readOnly = false, onCl
     return (
       <label className={`${style.labelWithCheckbox} ${style.label} ${appStyle.titleText}`}>
         {text}
-        <input type={type}
-               className={style.checkBox}
-               style={{ borderRadius: '6px' }}
+        <input
+            name={name}
+          type={type}
+          className={style.checkBox}
+          style={{ borderRadius: '6px' }}
+          onChange={onChange} // Добавляем поддержку onChange
+
         />
       </label>
     );
@@ -38,12 +42,14 @@ const Input = ({ text = '', type, hint = '', img = <></>, readOnly = false, onCl
     <label className={`${style.label} ${appStyle.titleText}`} style={{ borderRadius: '4px' }}>
       {text}
       <input
+          name={name}
         type={type}
         placeholder={hint}
         className={style.input}
         style={{ borderRadius: '6px', cursor: readOnly ? 'pointer' : 'auto' }}
         readOnly={readOnly}
         onClick={onClick}
+        onChange={onChange} // Добавляем поддержку onChange
       />
       {img}
     </label>

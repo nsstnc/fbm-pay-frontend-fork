@@ -9,9 +9,53 @@ import {
     Popover, Whisper, Dropdown,
     Button
 } from "rsuite/";
+import {useEffect, useState} from "react";
 // eslint-disable-next-line react/prop-types
 
-const renderMenu = ({left, top, className}, ref, email, name) => {
+const RenderMenu = ({left, top, className}, ref, id) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+
+    const fetchUser = async () => {
+        const url = `/api/users/${id}`
+        const headers = {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: "GET",
+                headers,
+            })
+
+            if (response.ok) {
+                const result = await response.json()
+                const userData = result.data
+
+
+                setName(userData.name)
+                setEmail(userData.email)
+                console.log(userData)
+            } else {
+                const errorText = await response.text()
+                console.error(
+                    "Ошибка при получении данных пользователя:",
+                    response.status,
+                    response.statusText,
+                    errorText
+                )
+            }
+        } catch (error) {
+            console.error("Ошибка при получении данных пользователя:", error)
+        }
+    }
+
+    useEffect(() => {
+        fetchUser()
+    }, [id])
+
 
     return (
         <Popover ref={ref}
@@ -28,17 +72,16 @@ const renderMenu = ({left, top, className}, ref, email, name) => {
                     Block
                 </Dropdown.Item>
             </Dropdown.Menu>
-
         </Popover>
     );
 };
 
 
-const Dots = ({text = "", subText = "", email, name}) => {
+const Dots = ({text = "", subText = "", id}) => {
     return (
         <Whisper placement="left"
                  trigger="click"
-                 speaker={(props, ref) => renderMenu(props, ref, email, name)}>
+                 speaker={(props, ref) => RenderMenu(props, ref, id)}>
 
 
             <div style={{width: '1rem'}}><a href="#" className={`dots`}><img src={dots}/></a></div>
