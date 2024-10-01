@@ -98,6 +98,7 @@ const  CardsAll = () => {
         )
 
         setCards(cardsWithDetails)
+
         console.log(cardsWithDetails)
       } else {
         const errorText = await response.text()
@@ -315,7 +316,7 @@ const  CardsAll = () => {
                           <div className={style.flex}>
                             <Card
                               card={<img alt="Mastercard" src={mastercard} />}
-                              number={card.number}
+                              number={card.card_number}
                               cardData={card}
                             />
                           </div>,
