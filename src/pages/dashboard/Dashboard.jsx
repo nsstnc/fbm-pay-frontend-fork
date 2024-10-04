@@ -105,14 +105,14 @@ const Dashboard = () => {
       } else {
         const errorText = await response.text()
         console.error(
-          "Ошибка при получении данных карт:",
+          "Ошибка при получении данных новостей:",
           response.status,
           response.statusText,
           errorText
         )
       }
     } catch (error) {
-      console.error("Ошибка при получении данных карт:", error)
+      console.error("Ошибка при получении данных новостей:", error)
     } // Устанавливаем isToggled в false после завершения всех операций
     setIsToggled(false)
   }
@@ -636,8 +636,10 @@ const Dashboard = () => {
                               {new Date(title.updated_at).toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })}
                             </p>
                           </div>
+                          <Link to={`/new/${title.id}`}>
+                            <img alt="Arrow icon" src={arrow}/>
+                          </Link>
 
-                          <img alt="Arrow icon" src={arrow}/>
                         </div>
                     ))
                     : <NoDataMessage/>}

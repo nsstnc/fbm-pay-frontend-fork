@@ -2,7 +2,7 @@ import style from "./newsItem.module.css"
 import appStyle from "../../../app.module.css"
 import Button from "../../../generic/buttons/Button.jsx"
 import { handleWidth } from "../../../generic/handleWidth/handleWidth.js"
-
+import { Link } from 'react-router-dom';
 // eslint-disable-next-line react/prop-types
 const NewsItem = ({ title, number, link, text, date }) => {
   //handleWidth
@@ -33,7 +33,9 @@ const NewsItem = ({ title, number, link, text, date }) => {
         </div>
 
         <div className={style.text}>
-          <p className={appStyle.mainText}>{text}</p>
+          <p className={appStyle.mainText}
+          dangerouslySetInnerHTML={{ __html: text }}/>
+
         </div>
         {isWidth && (
           <div className={style.date}>
@@ -57,7 +59,7 @@ const NewsItem = ({ title, number, link, text, date }) => {
       </div>
       {isWidth && (
         <div className={style.button}>
-          <p className={`${appStyle.mainText} ${appStyle.green}`}>Read More</p>
+          <Link className={`${appStyle.mainText} ${appStyle.green}`} to={link}>Read More</Link>
         </div>
       )}
     </div>

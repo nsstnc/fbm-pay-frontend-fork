@@ -55,7 +55,7 @@ const News = () => {
                     </p>
                   </div>
                   <div className={style.btn_news}>
-                    <Button text="Important news" link={"#"} />
+                    <Button text="Important news" />
                   </div>
                 </div>
               </div>

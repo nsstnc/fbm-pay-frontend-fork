@@ -33,7 +33,7 @@ export const SUPPORT_ROUTE = '/support'
 export const CREATE_TICKET_ROUTE = '/support/create/ticket'
 export const TICKET_ID_ROUTE = '/support/create/ticket/1'
 export const NEWS_ROUTE = '/news'
-export const NEW_PAGE_ROUTE = '/news/1'
+export const NEW_PAGE_ROUTE = '/new/:id'
 
 export const LOGIN_ROUTE = '/login'
 export const TWO_FACTOR_AUTHENTICATION_ROUTE = '/2fa'
