@@ -56,7 +56,7 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isPreload, setIsPreload] = useState(false)
   const [isMenu, setIsMenu] = useState(false)
-
+  const [payNew, setPayNew] = useState([])
   const { accounts, setAccounts } = useContext(AccountsContext)
   const { cardsList, setCards } = useContext(CardsContext)
   // const [totalToday, setTotalToday] = useState(0);
@@ -75,6 +75,7 @@ const Dashboard = () => {
     setIsPreload(true)
     fetchAccounts()
     fetchCards()
+    fetchNews()
   }
 
   // const handleClickAccounts = (e) => {
@@ -82,6 +83,41 @@ const Dashboard = () => {
   //     setIsLoading(true);
   //     fetchAccounts();
   // };
+
+  const fetchNews = async () => {
+    const url = "/api/news"
+    const headers = {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    }
+
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers,
+      })
+
+      if (response.ok) {
+        const result = await response.json()
+        console.log(result.data)
+        setPayNew(result.data)
+      } else {
+        const errorText = await response.text()
+        console.error(
+          "Ошибка при получении данных карт:",
+          response.status,
+          response.statusText,
+          errorText
+        )
+      }
+    } catch (error) {
+      console.error("Ошибка при получении данных карт:", error)
+    } // Устанавливаем isToggled в false после завершения всех операций
+    setIsToggled(false)
+  }
+
+
 
   const fetchCards = async () => {
     const url = "/api/cards"
@@ -153,6 +189,7 @@ const Dashboard = () => {
   useEffect(() => {
     fetchAccounts()
     fetchCards()
+    fetchNews()
   }, [])
 
   // useEffect(() => {
@@ -257,20 +294,19 @@ const Dashboard = () => {
     fetchWidgets()
   }, [accounts])
 
-  const payNew = []
-  // for (let i = 0; i < 0; ++i) {
+  // const payNew = []
+  // for (let i = 0; i < 10; ++i) {
   //     payNew.push(
-  //         // eslint-disable-next-line react/jsx-no-comment-textnodes
-  //         <div className={style.payNews__text}>
-  //             <div className={style.text}>
-  //                 <p className={appStyle.mainText}>Disconnecting BIN 414898</p>
-  //                 <p className={`${appStyle.hint} ${appStyle.smallerText}`}>
-  //                     22.04.2024
-  //                 </p>
-  //             </div>
-  //
-  //             <img alt="Arrow icon" src={arrow}/>
-  //         </div>
+  //        {
+  //           "id": 1,
+  //           "title": "Тестовая новость",
+  //           "preview": null,
+  //           "content": "<p>Текст</p>",
+  //           "author": "Super Admin",
+  //           "published_at": null,
+  //           "created_at": "2024-09-17T07:03:24.000000Z",
+  //           "updated_at": "2024-09-17T07:03:24.000000Z"
+  //       }
   //     );
   // }
 
@@ -591,17 +627,31 @@ const Dashboard = () => {
             }
             content={
               <div className={style.content}>
-                {payNew.length > 0 ? payNew : <NoDataMessage />}
+                {payNew.length > 0 ?
+                    payNew.slice(0, 3).map((title, index) => (
+                        <div className={style.payNews__text}>
+                          <div className={style.text}>
+                            <p className={appStyle.mainText}> {title.title} </p>
+                            <p className={`${appStyle.hint} ${appStyle.smallerText}`}>
+                              {new Date(title.updated_at).toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                            </p>
+                          </div>
+
+                          <img alt="Arrow icon" src={arrow}/>
+                        </div>
+                    ))
+                    : <NoDataMessage/>}
+
               </div>
             }
             className={style.div6}
           />
           <ContentCard
-            preload={isLoading}
-            title={
-              <div className={style.contentCard}>
-                <div className={style.menu_refresh}>
-                  <p className={appStyle.titleText}>ACCOUNT’S BALANCES</p>
+              preload={isLoading}
+              title={
+                <div className={style.contentCard}>
+                  <div className={style.menu_refresh}>
+                    <p className={appStyle.titleText}>ACCOUNT’S BALANCES</p>
                   {/*<a*/}
                   {/*    onClick={handleClickAccounts}*/}
                   {/*    className={style.refresh}*/}
