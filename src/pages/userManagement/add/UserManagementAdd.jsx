@@ -29,8 +29,58 @@ const UserManagementAdd = () => {
         otp_login: 'One time password received via E-mail',
         otp_approve: 'One time password received via E-mail',
         main_user_creation: false,
-        access_to_accounts: [],
     });
+
+    const handleAddUser = async (e) => {
+        e.preventDefault()
+        const url = "/api/users/create"
+        const headers = {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        }
+        const body = {
+            "name": formData.name,
+            "email": formData.email,
+            "phone": formData.phone,
+            "telegram": formData.telegram,
+            "is_main": formData.is_main,
+            "2fa_login_type": "email",
+            "2fa_approve_type": "email"
+        }
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers,
+                body: JSON.stringify(body),
+            })
+            // TODO если все ок, перенаправить на страницу user management
+            // TODO добавление пользователя в выбранные аккаунты по id
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success === true) {
+                    console.log(result)
+                    const data = result.data;
+
+                    console.log(data);
+                    setErrorMessage(''); // Очистить сообщение об ошибке, если запрос успешен
+                    }
+                else {
+                    const errorText = await result.data.message;
+                    setErrorMessage(errorText); // Установить сообщение об ошибке
+                    console.error("Ошибка при создании пользователя:", errorText);
+                }
+            } else {
+                const errorText = await response.text();
+                setErrorMessage(errorText); // Установить сообщение об ошибке
+                console.error("Ошибка при создании пользователя:", errorText);
+            }
+        } catch (error) {
+            setErrorMessage("Ошибка при создании пользователя: " + error.message);
+            console.error("Ошибка при создании пользователя:", error);
+        }
+    };
+
 
     // Функция для обновления otpLoginOption и otpApproveOption
     const setOtpLoginOption = (value) => {
@@ -59,13 +109,14 @@ const UserManagementAdd = () => {
     console.log(formData);
     const [opened] = useValue($isMenuOpened)
     const options = [
-        'One time password received via Phone',
+        // 'One time password received via Phone',
         'One time password received via E-mail',
-        'One time password received via Telegram',
+        // 'One time password received via Telegram',
     ]
     const [visibleDropdownId, setVisibleDropdownId] = useState(null)
     const [accessToAccounts, setAccessToAccounts] = useState([]);
     const {accounts, setAccounts} = useContext(AccountsContext)
+    const [errorMessage, setErrorMessage] = useState('');
     const handleDeleteAccount = (iban) => {
         // Удаляем аккаунт из массива accessToAccounts
         setAccessToAccounts(accessToAccounts.filter(account => account.iban !== iban));
@@ -374,7 +425,16 @@ const UserManagementAdd = () => {
                             title="Main User Creation"
                             value={
                                 <div className={style.input} style={{marginLeft: "-105px"}}>
-                                    <Input hint="" type="checkbox"/>
+                                    <Input hint=""
+                                           type="checkbox"
+                                           checked={formData.main_user_creation}
+                                           onChange={(e) =>
+                                               setFormData({
+                                                   ...formData,
+                                                   main_user_creation: e.target.checked
+                                               })
+                                           }
+                                    />
                                 </div>
                             }
                         />
@@ -468,10 +528,17 @@ const UserManagementAdd = () => {
                                 account.
                             </p>
                         </div>
+                        <div className={style.attention} style={{width: "80%"}}>
+                            <p className={appStyle.mainText}
+                                style={{width: "100%", color: errorMessage ? 'red' : 'inherit'}}>
+                                {errorMessage}
+                            </p>
+                        </div>
+
 
                         <div className={style.buttons}>
                             <div className={style.button}>
-                                <Button text="Add"/>
+                                <Button text="Add" onClick={handleAddUser}/>
                             </div>
                             <div className={style.button}>
                                 <WhiteButtonCancel text="Back" link={USER_MANAGEMENT_ROUTE}/>

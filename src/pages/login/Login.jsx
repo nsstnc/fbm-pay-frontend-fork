@@ -16,112 +16,77 @@ const Login = () => {
     const [message, setMessage] = useState("")
 
     const handleLogin = async (e) => {
-        e.preventDefault()
-        console.log("Button clicked!")
+        e.preventDefault();
+        console.log("Button clicked!");
+        const url = "/api/auth/login";
 
-        const url = "/api/accounts/registration"
         const headers = {
             "Content-Type": "application/json",
-            Accept: "application/json",
-        }
+            "Accept": "application/json",
+        };
         const body = {
-            name: email,
             email: email,
             password: password,
-            password_confirmation: password,
-        }
-        console.log(body)
+            device_name: "eos",
+        };
         try {
-            const response = await fetch(url, {
+            console.log("Request body:", JSON.stringify(body));
+            const loginResponse = await fetch(url, {
                 method: "POST",
                 headers,
                 body: JSON.stringify(body),
-            })
-            console.log(response)
-            if (response.ok) {
-                const registerResult = await response.json()
-                console.log(registerResult)
-                localStorage.setItem("token", registerResult.data.token)
-                navigate("/dashboard")
+            });
+
+            console.log("Full response object:", loginResponse); 
+
+            if (loginResponse.ok) {
+                const loginResult = await loginResponse.json();
+                console.log("Login successful:", loginResult);
+                setEmail(email);
+                navigate("/2fa");
             } else {
-                const errorText = await response.text()
-                console.error(
-                    "Ошибка при регистрации:",
-                    response.status,
-                    response.statusText,
-                    errorText
-                )
+                // Выводим статус и заголовки
+                console.error("Response status:", loginResponse.status);
+                console.error("Response headers:", loginResponse.headers);
 
-                let result
-                try {
-                    result = JSON.parse(errorText)
-                } catch (parseError) {
-                    console.error("Ошибка разбора ответа:", parseError)
-                    return
-                }
+                // Проверяем на пустое тело ответа
+                const contentLength = loginResponse.headers.get("Content-Length");
+                if (contentLength === "0") {
+                    console.error("Ошибка при авторизации: Пустой ответ от сервера");
+                    setMessage("Ошибка при авторизации: Пустой ответ от сервера");
+                } else {
+                    const errorText = await loginResponse.text();
+                    console.log("Raw error text:", errorText);
 
-                if (
-                    result.success === false &&
-                    result.data &&
-                    result.data.validate_errors
-                ) {
-                    const validationErrors = result.data.validate_errors
-                    if (validationErrors.email) {
-                        setMessage(validationErrors.email)
-                    }
-                    if (validationErrors.includes("The email has already been taken.")) {
-                        const body = {
-                            email: email,
-                            password: password,
+                    try {
+                        const loginError = errorText ? JSON.parse(errorText) : {};
+                        console.error(
+                            "Ошибка при авторизации:",
+                            loginResponse.status,
+                            loginResponse.statusText,
+                            loginError
+                        );
+                        // Проверяем наличие полей с валидационными ошибками
+                        if (
+                            loginError.data &&
+                            loginError.data.validate_errors &&
+                            loginError.data.validate_errors.email
+                        ) {
+                            setMessage(loginError.data.validate_errors.email);
+                        } else {
+                            setMessage("Ошибка при авторизации. Попробуйте снова.");
                         }
-                        const url = "/api/auth/login"
-                        try {
-                            console.log(JSON.stringify(body))
-                            const loginResponse = await fetch(url, {
-                                method: "POST",
-                                headers,
-                                body: JSON.stringify(body),
-                            })
-
-                            if (loginResponse.ok) {
-                                const loginResult = await loginResponse.json()
-                                console.log(loginResult)
-                                setEmail(email)
-                                navigate("/2fa")
-                            } else if (loginResponse.headers.get("Content-Length") === "0") {
-                                console.error("Ошибка при авторизации: Пустой ответ от сервера")
-                                setMessage("Ошибка при авторизации: Пустой ответ от сервера")
-                            } else {
-                                const errorText = await loginResponse.text()
-                                const loginError = JSON.parse(errorText)
-                                console.error(
-                                    "Ошибка при авторизации:",
-                                    loginResponse.status,
-                                    loginResponse.statusText,
-                                    loginError
-                                )
-                                if (
-                                    loginError.data &&
-                                    loginError.data.validate_errors &&
-                                    loginError.data.validate_errors.email
-                                ) {
-                                    setMessage(loginError.data.validate_errors.email)
-                                } else {
-                                    setMessage("Ошибка при авторизации. Попробуйте снова.")
-                                }
-                            }
-                        } catch (loginError) {
-                            console.error("Ошибка при авторизации:", loginError)
-                            setMessage("Ошибка при авторизации. Попробуйте снова.")
-                        }
+                    } catch (parseError) {
+                        console.error("Ошибка при парсинге JSON:", parseError);
+                        setMessage("Ошибка при авторизации. Попробуйте снова.");
                     }
                 }
             }
-        } catch (error) {
-            console.error("Ошибка при регистрации:", error)
-            setMessage("Ошибка при регистрации. Попробуйте снова.")
+        } catch (loginError) {
+            console.error("Ошибка при авторизации:", loginError);
+            setMessage("Ошибка при авторизации. Попробуйте снова.");
         }
-    }
+    };
 
     return (
         <div className={style.background}>

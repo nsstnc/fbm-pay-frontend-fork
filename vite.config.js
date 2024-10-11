@@ -27,6 +27,7 @@ export default defineConfig({
       "/api": {
         target: "https://fbm-pay.com",
         changeOrigin: true,
+        secure: false,
       },
     },
   },

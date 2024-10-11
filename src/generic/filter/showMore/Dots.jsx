@@ -15,9 +15,9 @@ import {useEffect, useState} from "react";
 const RenderMenu = ({left, top, className}, ref, id) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-
+    console.log(id)
     const fetchUser = async () => {
-        const url = `/api/users/${id}`
+        const url = `/api/users/${parseInt(id, 10)}`
         const headers = {
             Authorization: "Bearer " + localStorage.getItem("token"),
             "Content-Type": "application/json",
